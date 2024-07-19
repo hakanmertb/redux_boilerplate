@@ -7,7 +7,6 @@ environment:
   sdk: '>=3.4.3 <4.0.0'
 
 dependencies:
-  async_redux: ^23.1.1
   flutter:
     sdk: flutter
   flutter_redux: ^0.10.0
