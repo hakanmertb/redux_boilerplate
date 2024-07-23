@@ -2,18 +2,28 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
+import 'package:one_context/one_context.dart';
 import 'package:redux_boilerplate/components/button/rapider_button.dart';
-import 'package:redux_boilerplate/core/rootstore/root_state.dart';
 import '../../../core/appstore/app_state.dart';
+import '../../../core/rootstore/root_state.dart';
 import '../actions.dart';
 
-class CounterView extends StatelessWidget {
+class CounterView extends StatefulWidget {
   const CounterView({super.key});
 
   @override
+  State<CounterView> createState() => _CounterViewState();
+}
+
+class _CounterViewState extends State<CounterView> {
+  @override
+  void initState() {
+    StoreProvider.of<RootState>(OneContext().context!).dispatch(InitAction());
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    log("burda");
-    StoreProvider.of<RootState>(context).dispatch(InitAction());
     return Scaffold(
       appBar: AppBar(title: const Text('Counter')),
       body: Center(
