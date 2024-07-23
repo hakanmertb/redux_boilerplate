@@ -9,7 +9,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_js: ^0.8.1
   flutter_redux: ^0.10.0
+  one_context: ^4.0.0
   redux: ^5.0.0
   redux_epics: ^0.15.1
 

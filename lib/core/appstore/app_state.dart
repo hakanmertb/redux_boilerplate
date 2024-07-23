@@ -1,7 +1,7 @@
 import 'package:redux_boilerplate/features/decrementLimit/state.dart';
 import 'package:redux_boilerplate/features/incrementLimit/state.dart';
 
-import '../features/counter/state.dart';
+import '../../features/counter/state.dart';
 
 class AppState {
   final CounterState counterState;

@@ -1,7 +1,7 @@
 import 'dart:developer';
 import 'package:redux_boilerplate/features/incrementLimit/actions.dart';
 import 'package:redux_epics/redux_epics.dart';
-import '../../core/app_state.dart';
+import '../../core/appstore/app_state.dart';
 
 Epic<AppState> incrementLimitEffects = combineEpics([
   TypedEpic<AppState, IncrementLimitIncrementAction>(_incrementEffect).call,

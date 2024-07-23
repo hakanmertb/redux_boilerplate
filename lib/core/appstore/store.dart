@@ -5,8 +5,8 @@ import 'package:redux_boilerplate/features/incrementLimit/effects.dart';
 import 'package:redux_boilerplate/features/incrementLimit/reducer.dart';
 import 'package:redux_epics/redux_epics.dart';
 import 'app_state.dart';
-import '../features/counter/reducer.dart';
-import '../features/counter/effects.dart';
+import '../../features/counter/reducer.dart';
+import '../../features/counter/effects.dart';
 
 Store<AppState> createStore() {
   final epics = combineEpics<AppState>(
