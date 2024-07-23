@@ -1,3 +1,1 @@
-# redux_boilerplate
-
-A new Flutter project.
+Redux Implementation
