@@ -1,12 +1,11 @@
 import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:one_context/one_context.dart';
 import 'package:redux_boilerplate/components/button/rapider_button.dart';
-import '../../../core/appstore/app_state.dart';
-import '../../../core/rootstore/root_state.dart';
-import '../actions.dart';
+import 'package:redux_boilerplate/features/data-stores/appstore/actions.dart';
+import 'package:redux_boilerplate/features/data-stores/appstore/state.dart';
+import 'package:redux_boilerplate/features/data-stores/counter/actions.dart';
 
 class CounterView extends StatefulWidget {
   const CounterView({super.key});
@@ -18,7 +17,7 @@ class CounterView extends StatefulWidget {
 class _CounterViewState extends State<CounterView> {
   @override
   void initState() {
-    StoreProvider.of<RootState>(OneContext().context!).dispatch(InitAction());
+    StoreProvider.of<AppState>(OneContext().context!).dispatch(InitAction());
     super.initState();
   }
 

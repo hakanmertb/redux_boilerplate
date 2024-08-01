@@ -1,16 +1,20 @@
 import 'package:redux/redux.dart';
-import 'package:redux_boilerplate/features/decrementLimit/effects.dart';
-import 'package:redux_boilerplate/features/decrementLimit/reducer.dart';
-import 'package:redux_boilerplate/features/incrementLimit/effects.dart';
-import 'package:redux_boilerplate/features/incrementLimit/reducer.dart';
+import 'package:redux_boilerplate/features/data-stores/decrementLimit/effects.dart';
+import 'package:redux_boilerplate/features/data-stores/decrementLimit/reducer.dart';
+import 'package:redux_boilerplate/features/data-stores/incrementLimit/effects.dart';
+import 'package:redux_boilerplate/features/data-stores/incrementLimit/reducer.dart';
 import 'package:redux_epics/redux_epics.dart';
-import 'app_state.dart';
-import '../../features/counter/reducer.dart';
-import '../../features/counter/effects.dart';
+import 'state.dart';
+import '../counter/reducer.dart';
+import '../counter/effects.dart';
 
 Store<AppState> createStore() {
-  final epics = combineEpics<AppState>(
-      [counterEffects, decrementLimitEffects, incrementLimitEffects]);
+  final epics = combineEpics<AppState>([
+    counterEffects,
+    decrementLimitEffects,
+    incrementLimitEffects,
+    initAppEffects
+  ]);
   final epicMiddleware = EpicMiddleware(epics);
 
   return Store<AppState>(

@@ -1,14 +1,13 @@
 import 'dart:developer';
-
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:one_context/one_context.dart';
-import 'package:redux_boilerplate/core/rootstore/root_state.dart';
-import 'package:redux_boilerplate/features/counter/selectors.dart';
-import 'package:redux_boilerplate/features/decrementLimit/selectors.dart';
-import 'package:redux_boilerplate/features/incrementLimit/selectors.dart';
+import 'package:redux_boilerplate/features/data-stores/counter/selectors.dart';
+import 'package:redux_boilerplate/features/data-stores/decrementLimit/selectors.dart';
+import 'package:redux_boilerplate/features/data-stores/incrementLimit/selectors.dart';
 import 'package:redux_epics/redux_epics.dart';
-import '../../core/appstore/app_state.dart';
-import '../../services/api.dart';
+import '../appstore/actions.dart';
+import '../appstore/state.dart';
+import '../../../services/api.dart';
 import 'actions.dart';
 
 Epic<AppState> counterEffects = combineEpics([
@@ -16,11 +15,11 @@ Epic<AppState> counterEffects = combineEpics([
   TypedEpic<AppState, DecrementAction>(_decrementEffect).call,
 ]);
 
-Epic<RootState> rootEffects =
-    combineEpics([TypedEpic<RootState, InitAction>(_initIncrement).call]);
+Epic<AppState> initAppEffects =
+    combineEpics([TypedEpic<AppState, InitAction>(_initIncrement).call]);
 
 Stream<dynamic> _initIncrement(
-    Stream<InitAction> actions, EpicStore<RootState> store) {
+    Stream<InitAction> actions, EpicStore<AppState> store) {
   return actions.asyncExpand((action) async* {
     log("Init Increment Effect triggered"); // Log eklendi
     StoreProvider.of<AppState>(OneContext().context!)
