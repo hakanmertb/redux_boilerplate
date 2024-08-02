@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:developer';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:njktest2/features/data-stores/appDataStore/state.dart';
@@ -25,7 +26,7 @@ Stream<dynamic> _getBooksInitApp(
     Stream<InitApp> actions, EpicStore<AppDataStoreState> store) {
   return actions.asyncExpand((action) async* {
     StoreProvider.of<AppDataStoreState>(OneContext().context!)
-        .dispatch(GetBooks(getBooksActionPayload: null));
+        .dispatch(GetBooks());
   });
 }
 
@@ -33,13 +34,15 @@ Stream<dynamic> _getBooks(
     Stream<GetBooks> actions, EpicStore<AppDataStoreState> store) {
   return actions.asyncExpand((action) async* {
     try {
-      await Future.delayed(const Duration(seconds: 2));
-      final result = await api.bookControllerFind();
-    
-      yield GetBooksSuccessful(getBooksSuccessfulActionPayload: result ?? []);
-    } catch (e) {
-      log(e.toString());
-      yield GetBooksFailure(getBooksFailurePayload: e);
+      yield await api.bookControllerFind().then((books) {
+        final payload = {
+          'books': books,
+        };
+        return GetBooksSuccessful(payload: payload);
+      });
+    } catch (err) {
+      log(err.toString());
+      yield GetBooksFailure();
     }
   });
 }

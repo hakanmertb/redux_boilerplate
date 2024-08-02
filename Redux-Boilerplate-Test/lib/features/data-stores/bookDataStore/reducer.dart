@@ -7,8 +7,7 @@ BookState bookReducer(BookState state, dynamic action) {
   }
   /////////////////////////////////
   else if (action is GetBooksSuccessful) {
-    return state.copyWith(
-        isLoading: false, books: action.getBooksSuccessfulActionPayload);
+    return state.copyWith(isLoading: false, books: action.payload["books"]);
   }
   /////////////////////////////////
   else if (action is GetBooksFailure) {

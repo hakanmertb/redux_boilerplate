@@ -1,19 +1,15 @@
-import 'package:njktest2/services/api/lib/api.dart';
-
 class GetBooks {
-  dynamic getBooksActionPayload;
-  GetBooks({required this.getBooksActionPayload});
+  GetBooks();
 }
 
 /// isimlendirme düzeltilecek ve payload
 class GetBooksSuccessful {
-  final List<BookWithRelations> getBooksSuccessfulActionPayload;
-  GetBooksSuccessful({required this.getBooksSuccessfulActionPayload});
+  final Map<String, dynamic> payload;
+  GetBooksSuccessful({required this.payload});
 }
 
 class GetBooksFailure {
-  dynamic getBooksFailurePayload;
-  GetBooksFailure({required this.getBooksFailurePayload});
+  GetBooksFailure();
 }
 
 class GetBookById {}
