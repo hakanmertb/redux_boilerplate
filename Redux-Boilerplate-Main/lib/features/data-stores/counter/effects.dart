@@ -1,6 +1,4 @@
 import 'dart:developer';
-import 'package:flutter_redux/flutter_redux.dart';
-import 'package:one_context/one_context.dart';
 import 'package:redux_boilerplate/features/data-stores/counter/selectors.dart';
 import 'package:redux_boilerplate/features/data-stores/decrementLimit/selectors.dart';
 import 'package:redux_boilerplate/features/data-stores/incrementLimit/selectors.dart';
@@ -22,8 +20,7 @@ Stream<dynamic> _initIncrement(
     Stream<InitAction> actions, EpicStore<AppState> store) {
   return actions.asyncExpand((action) async* {
     log("Init Increment Effect triggered"); // Log eklendi
-    StoreProvider.of<AppState>(OneContext().context!)
-        .dispatch(IncrementAction());
+    yield IncrementAction();
   });
 }
 

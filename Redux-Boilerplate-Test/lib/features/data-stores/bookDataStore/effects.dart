@@ -1,9 +1,6 @@
-import 'dart:convert';
 import 'dart:developer';
-import 'package:flutter_redux/flutter_redux.dart';
 import 'package:njktest2/features/data-stores/appDataStore/state.dart';
 import 'package:njktest2/services/api/lib/api.dart';
-import 'package:one_context/one_context.dart';
 import 'package:redux_epics/redux_epics.dart';
 import '../appDataStore/actions.dart';
 import 'actions.dart';
@@ -25,8 +22,7 @@ Epic<AppDataStoreState> initAppEffects = combineEpics([
 Stream<dynamic> _getBooksInitApp(
     Stream<InitApp> actions, EpicStore<AppDataStoreState> store) {
   return actions.asyncExpand((action) async* {
-    StoreProvider.of<AppDataStoreState>(OneContext().context!)
-        .dispatch(GetBooks());
+    yield GetBooks();
   });
 }
 
