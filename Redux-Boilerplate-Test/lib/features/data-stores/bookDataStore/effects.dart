@@ -34,7 +34,7 @@ Stream<dynamic> _getBooks(
         final payload = {
           'books': books,
         };
-        return GetBooksSuccessful(payload: payload);
+        return GetBooksSuccessful(payload);
       });
     } catch (err) {
       log(err.toString());

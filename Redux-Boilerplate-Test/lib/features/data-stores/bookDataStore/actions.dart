@@ -5,7 +5,7 @@ class GetBooks {
 /// isimlendirme düzeltilecek ve payload
 class GetBooksSuccessful {
   final Map<String, dynamic> payload;
-  GetBooksSuccessful({required this.payload});
+  GetBooksSuccessful(this.payload);
 }
 
 class GetBooksFailure {
