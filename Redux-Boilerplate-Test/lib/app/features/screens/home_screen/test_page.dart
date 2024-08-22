@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:njktest2/app/features/data-stores/appDataStore/actions.dart';
@@ -34,24 +33,56 @@ class _TempViewState extends State<TempView> {
               child: CircularProgressIndicator(),
             );
           } else if (state.books == null || state.books!.isEmpty) {
-            log(state.books.toString());
             return Column(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                const SizedBox(
+                  height: 50,
+                ),
                 Text(
-                  "No Books",
+                  "${state.books.toString() == "[]" ? "[ ]" : "${state.books}"}\nNo Books",
+                  textAlign: TextAlign.center,
                   style: Theme.of(context).textTheme.headlineMedium,
                 ),
-                FloatingActionButton(onPressed: () {
-                  StoreProvider.of<AppDataStoreState>(context)
-                      .dispatch(GetBooks());
-                })
+                const SizedBox(
+                  height: 200,
+                ),
+                SizedBox(
+                  width: 150,
+                  height: 60,
+                  child: MaterialButton(
+                    color: Colors.amber,
+                    onPressed: () {
+                      StoreProvider.of<AppDataStoreState>(context)
+                          .dispatch(GetBooks());
+                    },
+                    child: const Text("Get Books",
+                        style: TextStyle(color: Colors.white, fontSize: 17)),
+                  ),
+                ),
+                const SizedBox(
+                  height: 9,
+                ),
+                SizedBox(
+                  width: 150,
+                  height: 60,
+                  child: MaterialButton(
+                    color: const Color.fromARGB(255, 191, 62, 6),
+                    onPressed: () {
+                      StoreProvider.of<AppDataStoreState>(context)
+                          .dispatch(GetBookById({"id": "1"}));
+                    },
+                    child: const Text("Get Book By Id\n{'id':'1'}",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(color: Colors.white, fontSize: 17)),
+                  ),
+                )
               ],
             );
           } else {
             return ListView.builder(itemBuilder: (context, index) {
-              return const ListTile(
-                title: Text("Book"),
+              return ListTile(
+                title: Text(state.books![index].id),
               );
             });
           }

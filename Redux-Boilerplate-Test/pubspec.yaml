@@ -19,7 +19,9 @@ dependencies:
   flutter_appauth: ^6.0.7
   one_context: ^4.0.0
   icons_plus: ^5.0.0
-  
+  rappider_flutter_widgets:
+    git: https://github.com/rappiderorg/rapider-flutter-widgets.git
+
 
 
 dev_dependencies:
@@ -29,5 +31,3 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
-  assets:
-    - .env

@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
@@ -5,6 +7,7 @@ import 'package:icons_plus/icons_plus.dart';
 import 'package:njktest2/app/features/data-stores/appDataStore/state.dart';
 import 'package:njktest2/app/features/data-stores/authDataStore/actions.dart';
 import 'package:njktest2/app/features/data-stores/authDataStore/state.dart';
+import 'package:rappider_flutter_widgets/rappider_flutter_widgets.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
@@ -81,6 +84,10 @@ class WelcomeScreen extends StatelessWidget {
                                   ],
                                 ),
                               ),
+                              const SizedBox(
+                                height: 8,
+                              ),
+                              _buildRappiderButton()
                             ],
                           )
                   ],
@@ -90,4 +97,9 @@ class WelcomeScreen extends StatelessWidget {
       ),
     );
   }
+}
+
+Widget _buildRappiderButton() {
+  return RappiderButtonFromJson.fromJson(jsonDecode(
+      '''{"text":"Hello from Rappider Widget","type":"primary","shape":"default","size":"default","colorType":"default","icon":null,"iconPlacement":null,"transparent":false,"loading":false,"block":false,"disabled":null,"key":"","emitWithoutPopconfirm":null,"popconfirmTitle":"","borderSettings":{"border":"null","borderColor":null,"borderStyle":null,"borderRadius":"5px","borderTop":null,"borderRight":null,"borderBottom":null,"borderLeft":null,"borderTopLeftRadius":null,"borderTopRightRadius":null,"borderBottomLeftRadius":null,"borderBottomRightRadius":null},"marginSettings":null,"paddingSettings":null,"shadowSettings":null,"customColorSettings":{"color":null,"backgroundColor":null},"customSizeSettings":{"width":250,"maxWidth":500,"minWidth":100,"height":48,"maxHeight":600,"minHeight":500},"redirectUrl":null}'''));
 }

@@ -16,8 +16,8 @@ abstract final class OauthConfig {
 
 //# Descope
   static const descopeDiscoveryUrl =
-      "https://api.descope.com/P2kbVzBCPiEWu8JSnt10ChOQdt06/.well-known/openid-configuration";
-  static const descopeClientId = "P2kbVzBCPiEWu8JSnt10ChOQdt06";
+      "https://api.descope.com/P2k10GWBu7QCAIowbm0wrqCLIVi7/.well-known/openid-configuration";
+  static const descopeClientId = "P2k10GWBu7QCAIowbm0wrqCLIVi7";
   static const descopeRedirectUrl = "https://example.njktest2/oauth2redirect";
   static const descopeLogoutUrl = "com.example.njktest2:/";
 }

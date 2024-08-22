@@ -103,6 +103,7 @@ Stream<dynamic> _getTokenByOauth(
           await AuthProvidersConfig.authorize(action.payload.provider);
 
       if (response != null) {
+        log("idtoken:" + response.idToken!);
         yield GetTokenByOauthSuccessful({
           'authorizationTokenResponse': response,
           'redirectUrl': action.payload.redirectUrl,
@@ -122,16 +123,16 @@ Stream<dynamic> _getTokenByOauthSuccessful(
     EpicStore<AppDataStoreState> store) {
   return actions.asyncExpand((action) async* {
     yield LoggedIn(payload: {
-      'user': UserWithRelations(
-          id: "id",
-          username: "username",
-          password: "password",
-          email: "email",
-          createdDate: DateTime.now(),
-          createdBy: "createdBy",
-          createdById: "createdById",
-          isDeleted: false,
-          books: []).toJson()
+      'user': User(
+        id: "id",
+        username: "username",
+        password: "password",
+        email: "email",
+        createdDate: DateTime.now(),
+        createdBy: "createdBy",
+        createdById: "createdById",
+        isDeleted: false,
+      ).toJson()
     });
     yield SetToken(
         {'token': action.payload.authorizationTokenResponse.accessToken});
@@ -158,6 +159,10 @@ Stream<dynamic> _loginByToken(
     Stream<LoginByToken> actions, EpicStore<AppDataStoreState> store) {
   return actions.asyncExpand((action) async* {
     try {
+      defaultApiClient = ApiClient(
+        basePath: DevEnvironment.apiBaseUrl,
+        authentication: HttpBearerAuth()..accessToken = action.payload.token,
+      );
       final user = await api.authControllerGetUserByToken();
       yield LoggedIn(payload: {
         'token': action.payload.token,
