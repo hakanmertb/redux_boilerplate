@@ -49,23 +49,23 @@ class Home extends StatelessWidget {
               _buildProfileCard(),
               _buildDetailCard('Application Details', [
                 _buildDetailRow('Who are you searching for?', 'My Family'),
-                _buildDetailRow('ZIP Code', '1010'),
+                _buildDetailRow('ZIP Code', '07450'),
               ]),
               _buildDetailCard('Household Information', [
                 _buildDetailRow('Household Size', '4'),
-                _buildDetailRow(
-                    'Expected Household Income for 2024', '\$50,000'),
+                _buildDetailRow('Expected Household Income for 2024',
+                    '\$29,000 - \$46,999'),
               ]),
               _buildDetailCard('Personal Information', [
                 _buildDetailRow('Gender', 'Male'),
-                _buildDetailRow('Birthday', '10-10-1990'),
-                _buildDetailRow('Height', '1.90 m'),
+                _buildDetailRow('Birthday', '03/03/1990'),
+                _buildDetailRow('Height', "5' 7\" "),
                 _buildDetailRow('Weight', '150 lbs'),
               ]),
               _buildDetailCard('Qualifying Life Events', [
                 _buildDetailRow('Qualifying Life Event', 'Got Married'),
                 _buildDetailRow(
-                    'Any of these within the last 5 years?', 'None'),
+                    'Any of these within the last 5 years?', 'Diabetes'),
                 _buildDetailRow('Do you smoke?', 'No'),
                 _buildDetailRow('Is anyone on this policy pregnant?', 'No'),
               ]),
@@ -98,6 +98,16 @@ class Home extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
+                ),
+              ),
+              SizedBox(
+                height: 8,
+              ),
+              Text(
+                '(347) 255-9099',
+                style: TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.w500,
                 ),
               ),
             ],
