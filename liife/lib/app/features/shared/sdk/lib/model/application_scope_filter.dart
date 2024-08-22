@@ -10,8 +10,8 @@
 
 part of openapi.api;
 
-class ApplicationFilter {
-  ApplicationFilter(  {  required this.offset,    required this.limit,    required this.skip,    required this.order,    required this.fields,    required this.include } );
+class ApplicationScopeFilter {
+  ApplicationScopeFilter(  {  required this.offset,    required this.limit,    required this.skip,    required this.order,    required this.where,    required this.fields,    required this.include } );
   /// Minimum value: 0
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -47,24 +47,27 @@ class ApplicationFilter {
   ///
   ApplicationScopeFilterOrder? order;
 
+  Map<String, Object> where;
+
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
   /// does not include a default value (using the "default:" property), however, the generated
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  ApplicationFields? fields;
+  ApplicationScopeFilterFields? fields;
 
-  List<ApplicationIncludeFilterInner> include;
+  List<Map<String, Object>> include;
 
 
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is ApplicationFilter&&
+  bool operator ==(Object other) => identical(this, other) || other is ApplicationScopeFilter&&
     other.offset == offset&&
     other.limit == limit&&
     other.skip == skip&&
     other.order == order&&
+     _deepEquality.equals(other.where, where)&&
     other.fields == fields&&
     _deepEquality.equals(other.include, include);
 
@@ -75,11 +78,12 @@ class ApplicationFilter {
     (limit == null ? 0 : limit!.hashCode) +
     (skip == null ? 0 : skip!.hashCode) +
     (order == null ? 0 : order!.hashCode) +
+    (where.hashCode) +
     (fields == null ? 0 : fields!.hashCode) +
     (include.hashCode);
 
   @override
-  String toString() => 'ApplicationFilter[offset=$offset, limit=$limit, skip=$skip, order=$order, fields=$fields, include=$include]';
+  String toString() => 'ApplicationScopeFilter[offset=$offset, limit=$limit, skip=$skip, order=$order, where=$where, fields=$fields, include=$include]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -103,6 +107,7 @@ class ApplicationFilter {
     } else {
       json[r'order'] = null;
     }
+      json[r'where'] = this.where;
     if (this.fields != null) {
       json[r'fields'] = this.fields;
     } else {
@@ -112,10 +117,10 @@ class ApplicationFilter {
     return json;
   }
 
-  /// Returns a new [ApplicationFilter] instance and imports its values from
+  /// Returns a new [ApplicationScopeFilter] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static ApplicationFilter? fromJson(dynamic value) {
+  static ApplicationScopeFilter? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -124,29 +129,30 @@ class ApplicationFilter {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "ApplicationFilter[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "ApplicationFilter[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "ApplicationScopeFilter[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "ApplicationScopeFilter[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return ApplicationFilter(
+      return ApplicationScopeFilter(
         offset: mapValueOfType<int>(json, r'offset'),
         limit: mapValueOfType<int>(json, r'limit'),
         skip: mapValueOfType<int>(json, r'skip'),
         order: ApplicationScopeFilterOrder.fromJson(json[r'order']),
-        fields: ApplicationFields.fromJson(json[r'fields']),
-        include: ApplicationIncludeFilterInnerJsonUtils.listFromJson(json[r'include']),
+        where: mapCastOfType<String, Object>(json, r'where') ?? const {},
+        fields: ApplicationScopeFilterFields.fromJson(json[r'fields']),
+        include: MapJsonUtils.listFromJson(json[r'include']),
       );
     }
     return null;
   }
 
-  static List<ApplicationFilter> listFromJson(dynamic json, {bool growable = false,}) {
-    final result = <ApplicationFilter>[];
+  static List<ApplicationScopeFilter> listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <ApplicationScopeFilter>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = ApplicationFilter.fromJson(row);
+        final value = ApplicationScopeFilter.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -155,12 +161,12 @@ class ApplicationFilter {
     return result.toList(growable: growable);
   }
 
-  static Map<String, ApplicationFilter> mapFromJson(dynamic json) {
-    final map = <String, ApplicationFilter>{};
+  static Map<String, ApplicationScopeFilter> mapFromJson(dynamic json) {
+    final map = <String, ApplicationScopeFilter>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = ApplicationFilter.fromJson(entry.value);
+        final value = ApplicationScopeFilter.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -169,14 +175,14 @@ class ApplicationFilter {
     return map;
   }
 
-  // maps a json object with a list of ApplicationFilter-objects as value to a dart map
-  static Map<String, List<ApplicationFilter>> mapListFromJson(dynamic json, {bool growable = false,}) {
-    final map = <String, List<ApplicationFilter>>{};
+  // maps a json object with a list of ApplicationScopeFilter-objects as value to a dart map
+  static Map<String, List<ApplicationScopeFilter>> mapListFromJson(dynamic json, {bool growable = false,}) {
+    final map = <String, List<ApplicationScopeFilter>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = ApplicationFilter.listFromJson(entry.value, growable: growable,);
+        map[entry.key] = ApplicationScopeFilter.listFromJson(entry.value, growable: growable,);
       }
     }
     return map;
@@ -187,12 +193,12 @@ class ApplicationFilter {
   };
 }
 
-extension ApplicationFilterJsonUtils on ApplicationFilter{
-static List<ApplicationFilter> listFromJson(dynamic json, {bool growable = false,}) {
-    final result = <ApplicationFilter>[];
+extension ApplicationScopeFilterJsonUtils on ApplicationScopeFilter{
+static List<ApplicationScopeFilter> listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <ApplicationScopeFilter>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = ApplicationFilter.fromJson(row);
+        final value = ApplicationScopeFilter.fromJson(row);
         if (value != null) {
           result.add(value);
         }

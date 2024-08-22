@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_redux/flutter_redux.dart';
+import 'package:liife/app/features/data-stores/appDataStore/state.dart';
+import 'package:liife/app/features/data-stores/authDataStore/actions.dart';
+import 'package:one_context/one_context.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -24,8 +28,11 @@ class Home extends StatelessWidget {
         ),
         actions: [
           IconButton(
-            icon: const Icon(Icons.edit),
-            onPressed: () {},
+            icon: const Icon(Icons.logout),
+            onPressed: () {
+              StoreProvider.of<AppDataStoreState>(OneContext().context!)
+                  .dispatch(Logout());
+            },
           ),
         ],
         elevation: 0,

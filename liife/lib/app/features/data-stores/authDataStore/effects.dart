@@ -1,7 +1,7 @@
 import 'dart:developer';
 import 'package:liife/app/features/auth/auth_webview.dart';
-import 'package:liife/app/features/auth/services/token-service/secure-storage-management-service.dart';
 import 'package:liife/app/features/auth/services/token-service/token-service.dart';
+
 import 'package:liife/app/features/data-stores/appDataStore/state.dart';
 import 'package:liife/app/features/data-stores/routerDataStore/actions.dart';
 import 'package:liife/app/features/shared/sdk/lib/api.dart';
@@ -11,9 +11,9 @@ import 'package:one_context/one_context.dart';
 import 'package:redux_epics/redux_epics.dart';
 import 'actions.dart';
 
-final AuthControllerApi api = AuthControllerApi();
-final TokenService tokenService =
-    TokenService(SecureStorageManagementService());
+AuthControllerApi api() {
+  return AuthControllerApi();
+}
 
 Epic<AppDataStoreState> authDataStoreEffects = combineEpics([
   TypedEpic<AppDataStoreState, Register>(_register).call,
@@ -54,7 +54,7 @@ Stream<dynamic> _register(
           {...action.payload.user, "usernameType": Settings.userNameType});
 
       final response =
-          await api.authControllerRegister(registerDTO: registerDTO);
+          await api().authControllerRegister(registerDTO: registerDTO);
 
       yield RegisterSuccessful({
         'token': response!.token,
@@ -88,7 +88,7 @@ Stream<dynamic> _getTokenByCredentials(
         'usernameType': Settings.userNameType,
       });
       if (credentials != null) {
-        final response = await api.authControllerLogin(credentials);
+        final response = await api().authControllerLogin(credentials);
         yield GetTokenByCredentialsSuccessful({
           'token': response!.token,
           'redirectUrl': action.payload.redirectUrl,
@@ -136,8 +136,8 @@ Stream<dynamic> _loginOrRegisterByDescopeRefreshToken(
     EpicStore<AppDataStoreState> store) {
   return actions.asyncExpand((action) async* {
     try {
-      var response =
-          await api.authControllerLoginOrRegisterByDescopeRefreshToken(
+      var response = await api()
+          .authControllerLoginOrRegisterByDescopeRefreshToken(
               action.payload.refreshToken);
 
       yield LoginOrRegisterByDescopeRefreshTokenSuccessful({
@@ -190,13 +190,14 @@ Stream<dynamic> _loginByToken(
         basePath: DevEnvironment.apiBaseUrl,
         authentication: HttpBearerAuth()..accessToken = action.payload.token,
       );
-      final user = await api.authControllerGetUserByToken();
+      final user = await api().authControllerGetUserByToken();
       yield LoggedIn(payload: {
         'token': action.payload.token,
         'user': user,
         'redirectUrl': action.payload.redirectUrl,
       });
     } catch (err) {
+      log('burda');
       log(err.toString());
       yield LoginByTokenFailure();
     }
@@ -217,14 +218,14 @@ Stream<dynamic> _setToken(
       basePath: DevEnvironment.apiBaseUrl,
       authentication: HttpBearerAuth()..accessToken = action.payload.token,
     );
-    await tokenService.setToken(action.payload.token);
+    await TokenService.instance.setToken(action.payload.token);
   });
 }
 
 Stream<dynamic> _clearToken(
     Stream<ClearToken> actions, EpicStore<AppDataStoreState> store) {
   return actions.asyncExpand((_) async* {
-    await tokenService.clearToken();
+    await TokenService.instance.clearToken();
   });
 }
 

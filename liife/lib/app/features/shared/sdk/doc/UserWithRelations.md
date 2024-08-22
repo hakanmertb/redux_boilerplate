@@ -1,4 +1,4 @@
-# openapi.model.ApplicationPartial
+# openapi.model.UserWithRelations
 
 ## Load the model package
 ```dart
@@ -8,21 +8,15 @@ import 'package:openapi/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **String** |  | [optional] 
-**type** | **String** |  | [optional] 
-**zipcode** | **String** |  | [optional] 
-**gender** | **String** |  | [optional] 
-**birthday** | [**DateTime**](DateTime.md) |  | [optional] 
-**heightFeet** | **num** |  | [optional] 
-**heightInch** | **num** |  | [optional] 
-**weight** | **num** |  | [optional] 
-**householdSize** | **num** |  | [optional] 
-**qualifyingLifeEvent** | **String** |  | [optional] 
-**smoking** | **bool** |  | [optional] 
-**houseHoldIncomeRange** | **String** |  | [optional] 
-**healthConditions** | **List<String>** |  | [optional] [default to const []]
-**pregnancy** | **bool** |  | [optional] 
-**sampleFieldName** | **String** |  | [optional] 
+**id** | **String** |  | 
+**username** | **String** |  | 
+**password** | **String** |  | [optional] 
+**firstName** | **String** |  | [optional] 
+**middleName** | **String** |  | [optional] 
+**lastName** | **String** |  | [optional] 
+**email** | **String** |  | [optional] 
+**phoneNumber** | **String** |  | [optional] 
+**avatar** | **String** |  | [optional] 
 **createdDate** | [**DateTime**](DateTime.md) |  | [optional] 
 **createdBy** | **String** |  | [optional] 
 **createdById** | **String** |  | [optional] 
@@ -33,7 +27,6 @@ Name | Type | Description | Notes
 **deletedBy** | **String** |  | [optional] 
 **deletedById** | **String** |  | [optional] 
 **isDeleted** | **bool** |  | [optional] 
-**userId** | **String** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

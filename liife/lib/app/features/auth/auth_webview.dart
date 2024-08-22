@@ -85,7 +85,10 @@ class AuthorizationTokenResponse {
 class OAuthWebView extends StatefulWidget {
   final String providerName;
 
-  const OAuthWebView({super.key, required this.providerName});
+  const OAuthWebView({
+    super.key,
+    required this.providerName,
+  });
 
   @override
   State<OAuthWebView> createState() => _OAuthWebViewState();
@@ -244,11 +247,24 @@ class _OAuthWebViewState extends State<OAuthWebView> {
 
     return Stack(
       children: [
-        if (_controller != null)
-          WebViewWidget(controller: _controller!)
-        else
-          const Center(child: CircularProgressIndicator()),
-        if (_isLoading) const Center(child: CircularProgressIndicator()),
+        if (_controller != null) WebViewWidget(controller: _controller!),
+        if (_isLoading || _controller == null)
+          Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                //TODO custom logo
+                SizedBox(
+                  height: 90,
+                  child: Image.asset('assets/logo.png'),
+                ),
+                const SizedBox(
+                  height: 8,
+                ),
+                const CircularProgressIndicator(),
+              ],
+            ),
+          ),
       ],
     );
   }

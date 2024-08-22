@@ -33,6 +33,8 @@ Name | Type | Description | Notes
 **deletedBy** | **String** |  | [optional] 
 **deletedById** | **String** |  | [optional] 
 **isDeleted** | **bool** |  | [optional] 
+**userId** | **String** |  | [optional] 
+**user** | [**UserWithRelations**](UserWithRelations.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

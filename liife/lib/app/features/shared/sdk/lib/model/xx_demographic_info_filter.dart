@@ -45,7 +45,7 @@ class XxDemographicInfoFilter {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  ApplicationFilterOrder? order;
+  ApplicationScopeFilterOrder? order;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -129,7 +129,7 @@ class XxDemographicInfoFilter {
         offset: mapValueOfType<int>(json, r'offset'),
         limit: mapValueOfType<int>(json, r'limit'),
         skip: mapValueOfType<int>(json, r'skip'),
-        order: ApplicationFilterOrder.fromJson(json[r'order']),
+        order: ApplicationScopeFilterOrder.fromJson(json[r'order']),
         fields: XxDemographicInfoFields.fromJson(json[r'fields']),
       );
     }

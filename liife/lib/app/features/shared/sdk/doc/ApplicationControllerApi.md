@@ -14,6 +14,7 @@ Method | HTTP request | Description
 [**applicationControllerDeleteById**](ApplicationControllerApi.md#applicationcontrollerdeletebyid) | **DELETE** /applications/{id} | 
 [**applicationControllerFind**](ApplicationControllerApi.md#applicationcontrollerfind) | **GET** /applications | 
 [**applicationControllerFindById**](ApplicationControllerApi.md#applicationcontrollerfindbyid) | **GET** /applications/{id} | 
+[**applicationControllerFindUser**](ApplicationControllerApi.md#applicationcontrollerfinduser) | **GET** /applications/{id}/user | 
 [**applicationControllerReplaceById**](ApplicationControllerApi.md#applicationcontrollerreplacebyid) | **PUT** /applications/{id} | 
 [**applicationControllerUpdateAll**](ApplicationControllerApi.md#applicationcontrollerupdateall) | **PATCH** /applications | 
 [**applicationControllerUpdateById**](ApplicationControllerApi.md#applicationcontrollerupdatebyid) | **PATCH** /applications/{id} | 
@@ -213,6 +214,47 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ApplicationWithRelations**](ApplicationWithRelations.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **applicationControllerFindUser**
+> User applicationControllerFindUser(id)
+
+
+
+### Example
+```dart
+import 'package:openapi/api.dart';
+
+final api_instance = ApplicationControllerApi();
+final id = id_example; // String | 
+
+try {
+    final result = api_instance.applicationControllerFindUser(id);
+    print(result);
+} catch (e) {
+    print('Exception when calling ApplicationControllerApi->applicationControllerFindUser: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**|  | 
+
+### Return type
+
+[**User**](User.md)
 
 ### Authorization
 

@@ -1,4 +1,4 @@
-# openapi.model.ApplicationFilter1
+# openapi.model.ApplicationScopeFilter
 
 ## Load the model package
 ```dart
@@ -13,8 +13,8 @@ Name | Type | Description | Notes
 **skip** | **int** |  | [optional] 
 **order** | [**ApplicationScopeFilterOrder**](ApplicationScopeFilterOrder.md) |  | [optional] 
 **where** | [**Map<String, Object>**](Object.md) |  | [optional] [default to const {}]
-**fields** | [**ApplicationFields**](ApplicationFields.md) |  | [optional] 
-**include** | [**List<ApplicationIncludeFilterInner>**](ApplicationIncludeFilterInner.md) |  | [optional] [default to const []]
+**fields** | [**ApplicationScopeFilterFields**](ApplicationScopeFilterFields.md) |  | [optional] 
+**include** | [**List<Map<String, Object>>**](Map.md) |  | [optional] [default to const []]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

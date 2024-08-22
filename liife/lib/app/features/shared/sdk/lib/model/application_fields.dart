@@ -11,7 +11,7 @@
 part of openapi.api;
 
 class ApplicationFields {
-  ApplicationFields(  {  required this.id,    required this.type,    required this.zipcode,    required this.gender,    required this.birthday,    required this.heightFeet,    required this.heightInch,    required this.weight,    required this.householdSize,    required this.qualifyingLifeEvent,    required this.smoking,    required this.houseHoldIncomeRange,    required this.healthConditions,    required this.pregnancy,    required this.sampleFieldName,    required this.createdDate,    required this.createdBy,    required this.createdById,    required this.updatedDate,    required this.updatedBy,    required this.updatedById,    required this.deletedDate,    required this.deletedBy,    required this.deletedById,    required this.isDeleted } );
+  ApplicationFields(  {  required this.id,    required this.type,    required this.zipcode,    required this.gender,    required this.birthday,    required this.heightFeet,    required this.heightInch,    required this.weight,    required this.householdSize,    required this.qualifyingLifeEvent,    required this.smoking,    required this.houseHoldIncomeRange,    required this.healthConditions,    required this.pregnancy,    required this.sampleFieldName,    required this.createdDate,    required this.createdBy,    required this.createdById,    required this.updatedDate,    required this.updatedBy,    required this.updatedById,    required this.deletedDate,    required this.deletedBy,    required this.deletedById,    required this.isDeleted,    required this.userId } );
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
   /// does not include a default value (using the "default:" property), however, the generated
@@ -212,6 +212,14 @@ class ApplicationFields {
   ///
   bool? isDeleted;
 
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  bool? userId;
+
 
 
   @override
@@ -240,7 +248,8 @@ class ApplicationFields {
     other.deletedDate == deletedDate&&
     other.deletedBy == deletedBy&&
     other.deletedById == deletedById&&
-    other.isDeleted == isDeleted;
+    other.isDeleted == isDeleted&&
+    other.userId == userId;
 
   @override
   int get hashCode => 
@@ -269,10 +278,11 @@ class ApplicationFields {
     (deletedDate == null ? 0 : deletedDate!.hashCode) +
     (deletedBy == null ? 0 : deletedBy!.hashCode) +
     (deletedById == null ? 0 : deletedById!.hashCode) +
-    (isDeleted == null ? 0 : isDeleted!.hashCode);
+    (isDeleted == null ? 0 : isDeleted!.hashCode) +
+    (userId == null ? 0 : userId!.hashCode);
 
   @override
-  String toString() => 'ApplicationFields[id=$id, type=$type, zipcode=$zipcode, gender=$gender, birthday=$birthday, heightFeet=$heightFeet, heightInch=$heightInch, weight=$weight, householdSize=$householdSize, qualifyingLifeEvent=$qualifyingLifeEvent, smoking=$smoking, houseHoldIncomeRange=$houseHoldIncomeRange, healthConditions=$healthConditions, pregnancy=$pregnancy, sampleFieldName=$sampleFieldName, createdDate=$createdDate, createdBy=$createdBy, createdById=$createdById, updatedDate=$updatedDate, updatedBy=$updatedBy, updatedById=$updatedById, deletedDate=$deletedDate, deletedBy=$deletedBy, deletedById=$deletedById, isDeleted=$isDeleted]';
+  String toString() => 'ApplicationFields[id=$id, type=$type, zipcode=$zipcode, gender=$gender, birthday=$birthday, heightFeet=$heightFeet, heightInch=$heightInch, weight=$weight, householdSize=$householdSize, qualifyingLifeEvent=$qualifyingLifeEvent, smoking=$smoking, houseHoldIncomeRange=$houseHoldIncomeRange, healthConditions=$healthConditions, pregnancy=$pregnancy, sampleFieldName=$sampleFieldName, createdDate=$createdDate, createdBy=$createdBy, createdById=$createdById, updatedDate=$updatedDate, updatedBy=$updatedBy, updatedById=$updatedById, deletedDate=$deletedDate, deletedBy=$deletedBy, deletedById=$deletedById, isDeleted=$isDeleted, userId=$userId]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -401,6 +411,11 @@ class ApplicationFields {
     } else {
       json[r'isDeleted'] = null;
     }
+    if (this.userId != null) {
+      json[r'userId'] = this.userId;
+    } else {
+      json[r'userId'] = null;
+    }
     return json;
   }
 
@@ -448,6 +463,7 @@ class ApplicationFields {
         deletedBy: mapValueOfType<bool>(json, r'deletedBy'),
         deletedById: mapValueOfType<bool>(json, r'deletedById'),
         isDeleted: mapValueOfType<bool>(json, r'isDeleted'),
+        userId: mapValueOfType<bool>(json, r'userId'),
       );
     }
     return null;

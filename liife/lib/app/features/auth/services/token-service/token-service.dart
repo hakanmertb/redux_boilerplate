@@ -7,9 +7,17 @@ const String REFRESH_TOKEN_SECURESTORAGE_KEY = 'refresh_token';
 const String TOKEN_EXPIRATION_SECURESTORAGE_KEY = 'token_expiration';
 
 class TokenService {
-  final SecureStorageManagementService _secureStorageManagementService;
+  static TokenService? _instance;
+  late final SecureStorageManagementService _secureStorageManagementService;
 
-  TokenService(this._secureStorageManagementService);
+  TokenService._internal() {
+    _secureStorageManagementService = SecureStorageManagementService.instance;
+  }
+
+  static TokenService get instance {
+    _instance ??= TokenService._internal();
+    return _instance!;
+  }
 
   Future<bool> isTokenExist() async {
     final token = await _secureStorageManagementService

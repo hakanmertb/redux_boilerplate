@@ -33,6 +33,7 @@ Name | Type | Description | Notes
 **deletedBy** | **bool** |  | [optional] 
 **deletedById** | **bool** |  | [optional] 
 **isDeleted** | **bool** |  | [optional] 
+**userId** | **bool** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

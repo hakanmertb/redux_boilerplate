@@ -11,7 +11,7 @@
 part of openapi.api;
 
 class ApplicationFilter1 {
-  ApplicationFilter1(  {  required this.offset,    required this.limit,    required this.skip,    required this.order,    required this.where,    required this.fields } );
+  ApplicationFilter1(  {  required this.offset,    required this.limit,    required this.skip,    required this.order,    required this.where,    required this.fields,    required this.include } );
   /// Minimum value: 0
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -45,7 +45,7 @@ class ApplicationFilter1 {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  ApplicationFilterOrder? order;
+  ApplicationScopeFilterOrder? order;
 
   Map<String, Object> where;
 
@@ -57,6 +57,8 @@ class ApplicationFilter1 {
   ///
   ApplicationFields? fields;
 
+  List<ApplicationIncludeFilterInner> include;
+
 
 
   @override
@@ -66,7 +68,8 @@ class ApplicationFilter1 {
     other.skip == skip&&
     other.order == order&&
      _deepEquality.equals(other.where, where)&&
-    other.fields == fields;
+    other.fields == fields&&
+    _deepEquality.equals(other.include, include);
 
   @override
   int get hashCode => 
@@ -76,10 +79,11 @@ class ApplicationFilter1 {
     (skip == null ? 0 : skip!.hashCode) +
     (order == null ? 0 : order!.hashCode) +
     (where.hashCode) +
-    (fields == null ? 0 : fields!.hashCode);
+    (fields == null ? 0 : fields!.hashCode) +
+    (include.hashCode);
 
   @override
-  String toString() => 'ApplicationFilter1[offset=$offset, limit=$limit, skip=$skip, order=$order, where=$where, fields=$fields]';
+  String toString() => 'ApplicationFilter1[offset=$offset, limit=$limit, skip=$skip, order=$order, where=$where, fields=$fields, include=$include]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -109,6 +113,7 @@ class ApplicationFilter1 {
     } else {
       json[r'fields'] = null;
     }
+      json[r'include'] = this.include;
     return json;
   }
 
@@ -134,9 +139,10 @@ class ApplicationFilter1 {
         offset: mapValueOfType<int>(json, r'offset'),
         limit: mapValueOfType<int>(json, r'limit'),
         skip: mapValueOfType<int>(json, r'skip'),
-        order: ApplicationFilterOrder.fromJson(json[r'order']),
+        order: ApplicationScopeFilterOrder.fromJson(json[r'order']),
         where: mapCastOfType<String, Object>(json, r'where') ?? const {},
         fields: ApplicationFields.fromJson(json[r'fields']),
+        include: ApplicationIncludeFilterInnerJsonUtils.listFromJson(json[r'include']),
       );
     }
     return null;

@@ -11,7 +11,7 @@
 part of openapi.api;
 
 class ApplicationWithRelations {
-  ApplicationWithRelations(  {  required this.id,    required this.type,    required this.zipcode,    required this.gender,    required this.birthday,    required this.heightFeet,    required this.heightInch,    required this.weight,    required this.householdSize,    required this.qualifyingLifeEvent,    required this.smoking,    required this.houseHoldIncomeRange,    required this.healthConditions,    required this.pregnancy,    required this.sampleFieldName,    required this.createdDate,    required this.createdBy,    required this.createdById,     this.updatedDate,     this.updatedBy,     this.updatedById,     this.deletedDate,     this.deletedBy,     this.deletedById,    required this.isDeleted } );
+  ApplicationWithRelations(  {  required this.id,    required this.type,    required this.zipcode,    required this.gender,    required this.birthday,    required this.heightFeet,    required this.heightInch,    required this.weight,    required this.householdSize,    required this.qualifyingLifeEvent,    required this.smoking,    required this.houseHoldIncomeRange,    required this.healthConditions,    required this.pregnancy,    required this.sampleFieldName,    required this.createdDate,    required this.createdBy,    required this.createdById,     this.updatedDate,     this.updatedBy,     this.updatedById,     this.deletedDate,     this.deletedBy,     this.deletedById,    required this.isDeleted,    required this.userId,    required this.user } );
   String id;
 
   String type;
@@ -92,6 +92,22 @@ class ApplicationWithRelations {
   ///
   bool? isDeleted;
 
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? userId;
+
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  UserWithRelations? user;
+
 
 
   @override
@@ -120,7 +136,9 @@ class ApplicationWithRelations {
     other.deletedDate == deletedDate&&
     other.deletedBy == deletedBy&&
     other.deletedById == deletedById&&
-    other.isDeleted == isDeleted;
+    other.isDeleted == isDeleted&&
+    other.userId == userId&&
+    other.user == user;
 
   @override
   int get hashCode => 
@@ -149,10 +167,12 @@ class ApplicationWithRelations {
     (deletedDate == null ? 0 : deletedDate!.hashCode) +
     (deletedBy == null ? 0 : deletedBy!.hashCode) +
     (deletedById == null ? 0 : deletedById!.hashCode) +
-    (isDeleted == null ? 0 : isDeleted!.hashCode);
+    (isDeleted == null ? 0 : isDeleted!.hashCode) +
+    (userId == null ? 0 : userId!.hashCode) +
+    (user == null ? 0 : user!.hashCode);
 
   @override
-  String toString() => 'ApplicationWithRelations[id=$id, type=$type, zipcode=$zipcode, gender=$gender, birthday=$birthday, heightFeet=$heightFeet, heightInch=$heightInch, weight=$weight, householdSize=$householdSize, qualifyingLifeEvent=$qualifyingLifeEvent, smoking=$smoking, houseHoldIncomeRange=$houseHoldIncomeRange, healthConditions=$healthConditions, pregnancy=$pregnancy, sampleFieldName=$sampleFieldName, createdDate=$createdDate, createdBy=$createdBy, createdById=$createdById, updatedDate=$updatedDate, updatedBy=$updatedBy, updatedById=$updatedById, deletedDate=$deletedDate, deletedBy=$deletedBy, deletedById=$deletedById, isDeleted=$isDeleted]';
+  String toString() => 'ApplicationWithRelations[id=$id, type=$type, zipcode=$zipcode, gender=$gender, birthday=$birthday, heightFeet=$heightFeet, heightInch=$heightInch, weight=$weight, householdSize=$householdSize, qualifyingLifeEvent=$qualifyingLifeEvent, smoking=$smoking, houseHoldIncomeRange=$houseHoldIncomeRange, healthConditions=$healthConditions, pregnancy=$pregnancy, sampleFieldName=$sampleFieldName, createdDate=$createdDate, createdBy=$createdBy, createdById=$createdById, updatedDate=$updatedDate, updatedBy=$updatedBy, updatedById=$updatedById, deletedDate=$deletedDate, deletedBy=$deletedBy, deletedById=$deletedById, isDeleted=$isDeleted, userId=$userId, user=$user]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -225,6 +245,16 @@ class ApplicationWithRelations {
     } else {
       json[r'isDeleted'] = null;
     }
+    if (this.userId != null) {
+      json[r'userId'] = this.userId;
+    } else {
+      json[r'userId'] = null;
+    }
+    if (this.user != null) {
+      json[r'user'] = this.user;
+    } else {
+      json[r'user'] = null;
+    }
     return json;
   }
 
@@ -274,6 +304,8 @@ class ApplicationWithRelations {
         deletedBy: mapValueOfType<String>(json, r'deletedBy'),
         deletedById: mapValueOfType<String>(json, r'deletedById'),
         isDeleted: mapValueOfType<bool>(json, r'isDeleted'),
+        userId: mapValueOfType<String>(json, r'userId'),
+        user: UserWithRelations.fromJson(json[r'user']),
       );
     }
     return null;

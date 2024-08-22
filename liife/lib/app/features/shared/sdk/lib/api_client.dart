@@ -192,10 +192,18 @@ class ApiClient {
           return ApplicationFilter.fromJson(value);
         case 'ApplicationFilter1':
           return ApplicationFilter1.fromJson(value);
-        case 'ApplicationFilterOrder':
-          return ApplicationFilterOrder.fromJson(value);
+        case 'ApplicationIncludeFilterInner':
+          return ApplicationIncludeFilterInner.fromJson(value);
+        case 'ApplicationIncludeFilterItems':
+          return ApplicationIncludeFilterItems.fromJson(value);
         case 'ApplicationPartial':
           return ApplicationPartial.fromJson(value);
+        case 'ApplicationScopeFilter':
+          return ApplicationScopeFilter.fromJson(value);
+        case 'ApplicationScopeFilterFields':
+          return ApplicationScopeFilterFields.fromJson(value);
+        case 'ApplicationScopeFilterOrder':
+          return ApplicationScopeFilterOrder.fromJson(value);
         case 'ApplicationWithRelations':
           return ApplicationWithRelations.fromJson(value);
         case 'Count':
@@ -222,6 +230,8 @@ class ApiClient {
           return TokenDTO.fromJson(value);
         case 'User':
           return User.fromJson(value);
+        case 'UserWithRelations':
+          return UserWithRelations.fromJson(value);
         case 'XxDemographicInfo':
           return XxDemographicInfo.fromJson(value);
         case 'XxDemographicInfoFields':

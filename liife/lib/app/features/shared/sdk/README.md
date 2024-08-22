@@ -64,6 +64,7 @@ Class | Method | HTTP request | Description
 *ApplicationControllerApi* | [**applicationControllerDeleteById**](doc//ApplicationControllerApi.md#applicationcontrollerdeletebyid) | **DELETE** /applications/{id} | 
 *ApplicationControllerApi* | [**applicationControllerFind**](doc//ApplicationControllerApi.md#applicationcontrollerfind) | **GET** /applications | 
 *ApplicationControllerApi* | [**applicationControllerFindById**](doc//ApplicationControllerApi.md#applicationcontrollerfindbyid) | **GET** /applications/{id} | 
+*ApplicationControllerApi* | [**applicationControllerFindUser**](doc//ApplicationControllerApi.md#applicationcontrollerfinduser) | **GET** /applications/{id}/user | 
 *ApplicationControllerApi* | [**applicationControllerReplaceById**](doc//ApplicationControllerApi.md#applicationcontrollerreplacebyid) | **PUT** /applications/{id} | 
 *ApplicationControllerApi* | [**applicationControllerUpdateAll**](doc//ApplicationControllerApi.md#applicationcontrollerupdateall) | **PATCH** /applications | 
 *ApplicationControllerApi* | [**applicationControllerUpdateById**](doc//ApplicationControllerApi.md#applicationcontrollerupdatebyid) | **PATCH** /applications/{id} | 
@@ -94,8 +95,12 @@ Class | Method | HTTP request | Description
  - [ApplicationFieldsOneOf](doc//ApplicationFieldsOneOf.md)
  - [ApplicationFilter](doc//ApplicationFilter.md)
  - [ApplicationFilter1](doc//ApplicationFilter1.md)
- - [ApplicationFilterOrder](doc//ApplicationFilterOrder.md)
+ - [ApplicationIncludeFilterInner](doc//ApplicationIncludeFilterInner.md)
+ - [ApplicationIncludeFilterItems](doc//ApplicationIncludeFilterItems.md)
  - [ApplicationPartial](doc//ApplicationPartial.md)
+ - [ApplicationScopeFilter](doc//ApplicationScopeFilter.md)
+ - [ApplicationScopeFilterFields](doc//ApplicationScopeFilterFields.md)
+ - [ApplicationScopeFilterOrder](doc//ApplicationScopeFilterOrder.md)
  - [ApplicationWithRelations](doc//ApplicationWithRelations.md)
  - [Count](doc//Count.md)
  - [Credentials](doc//Credentials.md)
@@ -109,6 +114,7 @@ Class | Method | HTTP request | Description
  - [RunStepFunctionRequestDTO](doc//RunStepFunctionRequestDTO.md)
  - [TokenDTO](doc//TokenDTO.md)
  - [User](doc//User.md)
+ - [UserWithRelations](doc//UserWithRelations.md)
  - [XxDemographicInfo](doc//XxDemographicInfo.md)
  - [XxDemographicInfoFields](doc//XxDemographicInfoFields.md)
  - [XxDemographicInfoFieldsOneOf](doc//XxDemographicInfoFieldsOneOf.md)

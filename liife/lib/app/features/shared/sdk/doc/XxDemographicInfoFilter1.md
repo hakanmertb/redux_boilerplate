@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **offset** | **int** |  | [optional] 
 **limit** | **int** |  | [optional] 
 **skip** | **int** |  | [optional] 
-**order** | [**ApplicationFilterOrder**](ApplicationFilterOrder.md) |  | [optional] 
+**order** | [**ApplicationScopeFilterOrder**](ApplicationScopeFilterOrder.md) |  | [optional] 
 **where** | [**Map<String, Object>**](Object.md) |  | [optional] [default to const {}]
 **fields** | [**XxDemographicInfoFields**](XxDemographicInfoFields.md) |  | [optional] 
 

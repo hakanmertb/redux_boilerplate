@@ -10,33 +10,11 @@
 
 part of openapi.api;
 
-class NewApplication {
-  NewApplication(  {  required this.type,    required this.zipcode,    required this.gender,    required this.birthday,    required this.heightFeet,    required this.heightInch,    required this.weight,    required this.householdSize,    required this.qualifyingLifeEvent,    required this.smoking,    required this.houseHoldIncomeRange,    required this.healthConditions,    required this.pregnancy,    required this.sampleFieldName,    required this.createdDate,    required this.createdBy,    required this.createdById,     this.updatedDate,     this.updatedBy,     this.updatedById,     this.deletedDate,     this.deletedBy,     this.deletedById,    required this.isDeleted,    required this.userId } );
-  String type;
+class UserWithRelations {
+  UserWithRelations(  {  required this.id,    required this.username,    required this.password,     this.firstName,     this.middleName,     this.lastName,     this.email,     this.phoneNumber,     this.avatar,    required this.createdDate,    required this.createdBy,    required this.createdById,     this.updatedDate,     this.updatedBy,     this.updatedById,     this.deletedDate,     this.deletedBy,     this.deletedById,    required this.isDeleted } );
+  String id;
 
-  String zipcode;
-
-  String gender;
-
-  DateTime birthday;
-
-  num heightFeet;
-
-  num heightInch;
-
-  num weight;
-
-  num householdSize;
-
-  String qualifyingLifeEvent;
-
-  bool smoking;
-
-  String houseHoldIncomeRange;
-
-  List<String> healthConditions;
-
-  bool pregnancy;
+  String username;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -44,7 +22,19 @@ class NewApplication {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  String? sampleFieldName;
+  String? password;
+
+  String? firstName;
+
+  String? middleName;
+
+  String? lastName;
+
+  String? email;
+
+  String? phoneNumber;
+
+  String? avatar;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -90,32 +80,19 @@ class NewApplication {
   ///
   bool? isDeleted;
 
-  ///
-  /// Please note: This property should have been non-nullable! Since the specification file
-  /// does not include a default value (using the "default:" property), however, the generated
-  /// source code must fall back to having a nullable type.
-  /// Consider adding a "default:" property in the specification file to hide this note.
-  ///
-  String? userId;
-
 
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is NewApplication&&
-    other.type == type&&
-    other.zipcode == zipcode&&
-    other.gender == gender&&
-    other.birthday == birthday&&
-    other.heightFeet == heightFeet&&
-    other.heightInch == heightInch&&
-    other.weight == weight&&
-    other.householdSize == householdSize&&
-    other.qualifyingLifeEvent == qualifyingLifeEvent&&
-    other.smoking == smoking&&
-    other.houseHoldIncomeRange == houseHoldIncomeRange&&
-    _deepEquality.equals(other.healthConditions, healthConditions)&&
-    other.pregnancy == pregnancy&&
-    other.sampleFieldName == sampleFieldName&&
+  bool operator ==(Object other) => identical(this, other) || other is UserWithRelations&&
+    other.id == id&&
+    other.username == username&&
+    other.password == password&&
+    other.firstName == firstName&&
+    other.middleName == middleName&&
+    other.lastName == lastName&&
+    other.email == email&&
+    other.phoneNumber == phoneNumber&&
+    other.avatar == avatar&&
     other.createdDate == createdDate&&
     other.createdBy == createdBy&&
     other.createdById == createdById&&
@@ -125,26 +102,20 @@ class NewApplication {
     other.deletedDate == deletedDate&&
     other.deletedBy == deletedBy&&
     other.deletedById == deletedById&&
-    other.isDeleted == isDeleted&&
-    other.userId == userId;
+    other.isDeleted == isDeleted;
 
   @override
   int get hashCode => 
     // ignore: unnecessary_parenthesis
-    (type.hashCode) +
-    (zipcode.hashCode) +
-    (gender.hashCode) +
-    (birthday.hashCode) +
-    (heightFeet.hashCode) +
-    (heightInch.hashCode) +
-    (weight.hashCode) +
-    (householdSize.hashCode) +
-    (qualifyingLifeEvent.hashCode) +
-    (smoking.hashCode) +
-    (houseHoldIncomeRange.hashCode) +
-    (healthConditions.hashCode) +
-    (pregnancy.hashCode) +
-    (sampleFieldName == null ? 0 : sampleFieldName!.hashCode) +
+    (id.hashCode) +
+    (username.hashCode) +
+    (password == null ? 0 : password!.hashCode) +
+    (firstName == null ? 0 : firstName!.hashCode) +
+    (middleName == null ? 0 : middleName!.hashCode) +
+    (lastName == null ? 0 : lastName!.hashCode) +
+    (email == null ? 0 : email!.hashCode) +
+    (phoneNumber == null ? 0 : phoneNumber!.hashCode) +
+    (avatar == null ? 0 : avatar!.hashCode) +
     (createdDate == null ? 0 : createdDate!.hashCode) +
     (createdBy == null ? 0 : createdBy!.hashCode) +
     (createdById == null ? 0 : createdById!.hashCode) +
@@ -154,31 +125,49 @@ class NewApplication {
     (deletedDate == null ? 0 : deletedDate!.hashCode) +
     (deletedBy == null ? 0 : deletedBy!.hashCode) +
     (deletedById == null ? 0 : deletedById!.hashCode) +
-    (isDeleted == null ? 0 : isDeleted!.hashCode) +
-    (userId == null ? 0 : userId!.hashCode);
+    (isDeleted == null ? 0 : isDeleted!.hashCode);
 
   @override
-  String toString() => 'NewApplication[type=$type, zipcode=$zipcode, gender=$gender, birthday=$birthday, heightFeet=$heightFeet, heightInch=$heightInch, weight=$weight, householdSize=$householdSize, qualifyingLifeEvent=$qualifyingLifeEvent, smoking=$smoking, houseHoldIncomeRange=$houseHoldIncomeRange, healthConditions=$healthConditions, pregnancy=$pregnancy, sampleFieldName=$sampleFieldName, createdDate=$createdDate, createdBy=$createdBy, createdById=$createdById, updatedDate=$updatedDate, updatedBy=$updatedBy, updatedById=$updatedById, deletedDate=$deletedDate, deletedBy=$deletedBy, deletedById=$deletedById, isDeleted=$isDeleted, userId=$userId]';
+  String toString() => 'UserWithRelations[id=$id, username=$username, password=$password, firstName=$firstName, middleName=$middleName, lastName=$lastName, email=$email, phoneNumber=$phoneNumber, avatar=$avatar, createdDate=$createdDate, createdBy=$createdBy, createdById=$createdById, updatedDate=$updatedDate, updatedBy=$updatedBy, updatedById=$updatedById, deletedDate=$deletedDate, deletedBy=$deletedBy, deletedById=$deletedById, isDeleted=$isDeleted]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'type'] = this.type;
-      json[r'zipcode'] = this.zipcode;
-      json[r'gender'] = this.gender;
-      json[r'birthday'] = this.birthday.toUtc().toIso8601String();
-      json[r'heightFeet'] = this.heightFeet;
-      json[r'heightInch'] = this.heightInch;
-      json[r'weight'] = this.weight;
-      json[r'householdSize'] = this.householdSize;
-      json[r'qualifyingLifeEvent'] = this.qualifyingLifeEvent;
-      json[r'smoking'] = this.smoking;
-      json[r'houseHoldIncomeRange'] = this.houseHoldIncomeRange;
-      json[r'healthConditions'] = this.healthConditions;
-      json[r'pregnancy'] = this.pregnancy;
-    if (this.sampleFieldName != null) {
-      json[r'sampleFieldName'] = this.sampleFieldName;
+      json[r'id'] = this.id;
+      json[r'username'] = this.username;
+    if (this.password != null) {
+      json[r'password'] = this.password;
     } else {
-      json[r'sampleFieldName'] = null;
+      json[r'password'] = null;
+    }
+    if (this.firstName != null) {
+      json[r'firstName'] = this.firstName;
+    } else {
+      json[r'firstName'] = null;
+    }
+    if (this.middleName != null) {
+      json[r'middleName'] = this.middleName;
+    } else {
+      json[r'middleName'] = null;
+    }
+    if (this.lastName != null) {
+      json[r'lastName'] = this.lastName;
+    } else {
+      json[r'lastName'] = null;
+    }
+    if (this.email != null) {
+      json[r'email'] = this.email;
+    } else {
+      json[r'email'] = null;
+    }
+    if (this.phoneNumber != null) {
+      json[r'phoneNumber'] = this.phoneNumber;
+    } else {
+      json[r'phoneNumber'] = null;
+    }
+    if (this.avatar != null) {
+      json[r'avatar'] = this.avatar;
+    } else {
+      json[r'avatar'] = null;
     }
     if (this.createdDate != null) {
       json[r'createdDate'] = this.createdDate!.toUtc().toIso8601String();
@@ -230,18 +219,13 @@ class NewApplication {
     } else {
       json[r'isDeleted'] = null;
     }
-    if (this.userId != null) {
-      json[r'userId'] = this.userId;
-    } else {
-      json[r'userId'] = null;
-    }
     return json;
   }
 
-  /// Returns a new [NewApplication] instance and imports its values from
+  /// Returns a new [UserWithRelations] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static NewApplication? fromJson(dynamic value) {
+  static UserWithRelations? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -250,29 +234,22 @@ class NewApplication {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "NewApplication[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "NewApplication[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "UserWithRelations[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "UserWithRelations[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return NewApplication(
-        type: mapValueOfType<String>(json, r'type')!,
-        zipcode: mapValueOfType<String>(json, r'zipcode')!,
-        gender: mapValueOfType<String>(json, r'gender')!,
-        birthday: mapDateTime(json, r'birthday', r'')!,
-        heightFeet: num.parse('${json[r'heightFeet']}'),
-        heightInch: num.parse('${json[r'heightInch']}'),
-        weight: num.parse('${json[r'weight']}'),
-        householdSize: num.parse('${json[r'householdSize']}'),
-        qualifyingLifeEvent: mapValueOfType<String>(json, r'qualifyingLifeEvent')!,
-        smoking: mapValueOfType<bool>(json, r'smoking')!,
-        houseHoldIncomeRange: mapValueOfType<String>(json, r'houseHoldIncomeRange')!,
-        healthConditions: json[r'healthConditions'] is Iterable
-            ? (json[r'healthConditions'] as Iterable).cast<String>().toList(growable: false)
-            : const [],
-        pregnancy: mapValueOfType<bool>(json, r'pregnancy')!,
-        sampleFieldName: mapValueOfType<String>(json, r'sampleFieldName'),
+      return UserWithRelations(
+        id: mapValueOfType<String>(json, r'id')!,
+        username: mapValueOfType<String>(json, r'username')!,
+        password: mapValueOfType<String>(json, r'password'),
+        firstName: mapValueOfType<String>(json, r'firstName'),
+        middleName: mapValueOfType<String>(json, r'middleName'),
+        lastName: mapValueOfType<String>(json, r'lastName'),
+        email: mapValueOfType<String>(json, r'email'),
+        phoneNumber: mapValueOfType<String>(json, r'phoneNumber'),
+        avatar: mapValueOfType<String>(json, r'avatar'),
         createdDate: mapDateTime(json, r'createdDate', r''),
         createdBy: mapValueOfType<String>(json, r'createdBy'),
         createdById: mapValueOfType<String>(json, r'createdById'),
@@ -283,17 +260,16 @@ class NewApplication {
         deletedBy: mapValueOfType<String>(json, r'deletedBy'),
         deletedById: mapValueOfType<String>(json, r'deletedById'),
         isDeleted: mapValueOfType<bool>(json, r'isDeleted'),
-        userId: mapValueOfType<String>(json, r'userId'),
       );
     }
     return null;
   }
 
-  static List<NewApplication> listFromJson(dynamic json, {bool growable = false,}) {
-    final result = <NewApplication>[];
+  static List<UserWithRelations> listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <UserWithRelations>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = NewApplication.fromJson(row);
+        final value = UserWithRelations.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -302,12 +278,12 @@ class NewApplication {
     return result.toList(growable: growable);
   }
 
-  static Map<String, NewApplication> mapFromJson(dynamic json) {
-    final map = <String, NewApplication>{};
+  static Map<String, UserWithRelations> mapFromJson(dynamic json) {
+    final map = <String, UserWithRelations>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = NewApplication.fromJson(entry.value);
+        final value = UserWithRelations.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -316,14 +292,14 @@ class NewApplication {
     return map;
   }
 
-  // maps a json object with a list of NewApplication-objects as value to a dart map
-  static Map<String, List<NewApplication>> mapListFromJson(dynamic json, {bool growable = false,}) {
-    final map = <String, List<NewApplication>>{};
+  // maps a json object with a list of UserWithRelations-objects as value to a dart map
+  static Map<String, List<UserWithRelations>> mapListFromJson(dynamic json, {bool growable = false,}) {
+    final map = <String, List<UserWithRelations>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = NewApplication.listFromJson(entry.value, growable: growable,);
+        map[entry.key] = UserWithRelations.listFromJson(entry.value, growable: growable,);
       }
     }
     return map;
@@ -331,28 +307,17 @@ class NewApplication {
 
   /// The list of required keys that must be present in a JSON.
   static const requiredKeys = <String>{
-    'type',
-    'zipcode',
-    'gender',
-    'birthday',
-    'heightFeet',
-    'heightInch',
-    'weight',
-    'householdSize',
-    'qualifyingLifeEvent',
-    'smoking',
-    'houseHoldIncomeRange',
-    'healthConditions',
-    'pregnancy',
+    'id',
+    'username',
   };
 }
 
-extension NewApplicationJsonUtils on NewApplication{
-static List<NewApplication> listFromJson(dynamic json, {bool growable = false,}) {
-    final result = <NewApplication>[];
+extension UserWithRelationsJsonUtils on UserWithRelations{
+static List<UserWithRelations> listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <UserWithRelations>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = NewApplication.fromJson(row);
+        final value = UserWithRelations.fromJson(row);
         if (value != null) {
           result.add(value);
         }
