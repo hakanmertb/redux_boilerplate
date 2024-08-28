@@ -11,7 +11,12 @@
 part of openapi.api;
 
 class RunStepFunctionRequestDTO {
-  RunStepFunctionRequestDTO(  {  required this.name,     this.payload } );
+    /// Returns a new [RunStepFunctionRequestDTO] instance.
+  RunStepFunctionRequestDTO(
+    { required this.name,
+    this.payload, }
+  );
+
   String name;
 
   Object? payload;
@@ -37,8 +42,6 @@ class RunStepFunctionRequestDTO {
       json[r'name'] = this.name;
     if (this.payload != null) {
       json[r'payload'] = this.payload;
-    } else {
-      json[r'payload'] = null;
     }
     return json;
   }

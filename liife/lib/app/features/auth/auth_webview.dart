@@ -226,14 +226,13 @@ class _OAuthWebViewState extends State<OAuthWebView> {
       );
 
       if (response.statusCode == 200) {
-        printResponseDetails(response);
         final tokenData = json.decode(response.body);
         return AuthorizationTokenResponse.fromJson(tokenData);
       } else {
         throw Exception('Failed to get token: ${response.body}');
       }
     } catch (e) {
-      print('Error during token exchange: $e');
+      log.log('Error during token exchange: $e');
       return null;
     }
   }
@@ -281,16 +280,7 @@ Future<AuthorizationTokenResponse?> performOAuthFlow(
     );
     return result;
   } catch (e) {
-    print('OAuth flow error: $e');
+    log.log('OAuth flow error: $e');
     return null;
   }
-}
-
-void printResponseDetails(http.Response response) {
-  log.log('Status Code: ${response.statusCode}');
-  log.log('Headers:');
-  response.headers.forEach((key, value) {
-    log.log('  $key: $value');
-  });
-  log.log('Body: ${response.body}');
 }

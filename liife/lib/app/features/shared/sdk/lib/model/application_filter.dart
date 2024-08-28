@@ -11,7 +11,16 @@
 part of openapi.api;
 
 class ApplicationFilter {
-  ApplicationFilter(  {  required this.offset,    required this.limit,    required this.skip,    required this.order,    required this.fields,    required this.include } );
+    /// Returns a new [ApplicationFilter] instance.
+  ApplicationFilter(
+    { this.offset,
+    this.limit,
+    this.skip,
+    this.order,
+    this.fields,
+    this.include = const [], }
+  );
+
   /// Minimum value: 0
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -85,28 +94,18 @@ class ApplicationFilter {
     final json = <String, dynamic>{};
     if (this.offset != null) {
       json[r'offset'] = this.offset;
-    } else {
-      json[r'offset'] = null;
     }
     if (this.limit != null) {
       json[r'limit'] = this.limit;
-    } else {
-      json[r'limit'] = null;
     }
     if (this.skip != null) {
       json[r'skip'] = this.skip;
-    } else {
-      json[r'skip'] = null;
     }
     if (this.order != null) {
       json[r'order'] = this.order;
-    } else {
-      json[r'order'] = null;
     }
     if (this.fields != null) {
       json[r'fields'] = this.fields;
-    } else {
-      json[r'fields'] = null;
     }
       json[r'include'] = this.include;
     return json;

@@ -11,7 +11,16 @@
 part of openapi.api;
 
 class XxDemographicInfoFilter1 {
-  XxDemographicInfoFilter1(  {  required this.offset,    required this.limit,    required this.skip,    required this.order,    required this.where,    required this.fields } );
+    /// Returns a new [XxDemographicInfoFilter1] instance.
+  XxDemographicInfoFilter1(
+    { this.offset,
+    this.limit,
+    this.skip,
+    this.order,
+    this.where = const {},
+    this.fields, }
+  );
+
   /// Minimum value: 0
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -85,29 +94,19 @@ class XxDemographicInfoFilter1 {
     final json = <String, dynamic>{};
     if (this.offset != null) {
       json[r'offset'] = this.offset;
-    } else {
-      json[r'offset'] = null;
     }
     if (this.limit != null) {
       json[r'limit'] = this.limit;
-    } else {
-      json[r'limit'] = null;
     }
     if (this.skip != null) {
       json[r'skip'] = this.skip;
-    } else {
-      json[r'skip'] = null;
     }
     if (this.order != null) {
       json[r'order'] = this.order;
-    } else {
-      json[r'order'] = null;
     }
       json[r'where'] = this.where;
     if (this.fields != null) {
       json[r'fields'] = this.fields;
-    } else {
-      json[r'fields'] = null;
     }
     return json;
   }

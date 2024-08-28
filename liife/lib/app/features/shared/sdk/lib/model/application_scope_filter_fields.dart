@@ -11,7 +11,10 @@
 part of openapi.api;
 
 class ApplicationScopeFilterFields {
-  ApplicationScopeFilterFields();
+    /// Returns a new [ApplicationScopeFilterFields] instance.
+  ApplicationScopeFilterFields(
+  );
+
 
 
   @override

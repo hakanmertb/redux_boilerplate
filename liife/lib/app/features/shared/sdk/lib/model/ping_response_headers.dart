@@ -11,7 +11,11 @@
 part of openapi.api;
 
 class PingResponseHeaders {
-  PingResponseHeaders(  {  required this.contentType } );
+    /// Returns a new [PingResponseHeaders] instance.
+  PingResponseHeaders(
+    { this.contentType, }
+  );
+
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
   /// does not include a default value (using the "default:" property), however, the generated
@@ -38,8 +42,6 @@ class PingResponseHeaders {
     final json = <String, dynamic>{};
     if (this.contentType != null) {
       json[r'Content-Type'] = this.contentType;
-    } else {
-      json[r'Content-Type'] = null;
     }
     return json;
   }

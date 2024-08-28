@@ -11,7 +11,12 @@
 part of openapi.api;
 
 class RunEventRequestDTO {
-  RunEventRequestDTO(  {  required this.name,     this.payload } );
+    /// Returns a new [RunEventRequestDTO] instance.
+  RunEventRequestDTO(
+    { required this.name,
+    this.payload, }
+  );
+
   String name;
 
   Object? payload;
@@ -37,8 +42,6 @@ class RunEventRequestDTO {
       json[r'name'] = this.name;
     if (this.payload != null) {
       json[r'payload'] = this.payload;
-    } else {
-      json[r'payload'] = null;
     }
     return json;
   }

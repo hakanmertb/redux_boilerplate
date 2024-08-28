@@ -12,6 +12,7 @@ library openapi.api;
 
 import 'dart:async';
 import 'dart:convert';
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:collection/collection.dart';
@@ -27,8 +28,6 @@ part 'auth/api_key_auth.dart';
 part 'auth/oauth.dart';
 part 'auth/http_basic_auth.dart';
 part 'auth/http_bearer_auth.dart';
-
-
 
 part 'api/application_controller_api.dart';
 part 'api/auth_controller_api.dart';
@@ -70,7 +69,6 @@ part 'model/xx_demographic_info_filter1.dart';
 part 'model/xx_demographic_info_partial.dart';
 part 'model/xx_demographic_info_with_relations.dart';
 
-
 /// An [ApiClient] instance that uses the default values obtained from
 /// the OpenAPI specification file.
 var defaultApiClient = ApiClient();
@@ -83,6 +81,7 @@ final _regList = RegExp(r'^List<(.*)>$');
 final _regSet = RegExp(r'^Set<(.*)>$');
 final _regMap = RegExp(r'^Map<String,(.*)>$');
 
-bool _isEpochMarker(String? pattern) => pattern == _dateEpochMarker || pattern == '/$_dateEpochMarker/';
+bool _isEpochMarker(String? pattern) =>
+    pattern == _dateEpochMarker || pattern == '/$_dateEpochMarker/';
 
 typedef Any = dynamic;

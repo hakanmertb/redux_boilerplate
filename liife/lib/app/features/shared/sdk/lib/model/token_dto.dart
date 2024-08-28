@@ -11,7 +11,11 @@
 part of openapi.api;
 
 class TokenDTO {
-  TokenDTO(  {  required this.token } );
+    /// Returns a new [TokenDTO] instance.
+  TokenDTO(
+    { required this.token, }
+  );
+
   String token;
 
 

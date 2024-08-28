@@ -11,7 +11,29 @@
 part of openapi.api;
 
 class UserWithRelations {
-  UserWithRelations(  {  required this.id,    required this.username,    required this.password,     this.firstName,     this.middleName,     this.lastName,     this.email,     this.phoneNumber,     this.avatar,    required this.createdDate,    required this.createdBy,    required this.createdById,     this.updatedDate,     this.updatedBy,     this.updatedById,     this.deletedDate,     this.deletedBy,     this.deletedById,    required this.isDeleted } );
+    /// Returns a new [UserWithRelations] instance.
+  UserWithRelations(
+    { required this.id,
+    required this.username,
+    this.password,
+    this.firstName,
+    this.middleName,
+    this.lastName,
+    this.email,
+    this.phoneNumber,
+    this.avatar,
+    this.createdDate,
+    this.createdBy,
+    this.createdById,
+    this.updatedDate,
+    this.updatedBy,
+    this.updatedById,
+    this.deletedDate,
+    this.deletedBy,
+    this.deletedById,
+    this.isDeleted, }
+  );
+
   String id;
 
   String username;
@@ -136,88 +158,54 @@ class UserWithRelations {
       json[r'username'] = this.username;
     if (this.password != null) {
       json[r'password'] = this.password;
-    } else {
-      json[r'password'] = null;
     }
     if (this.firstName != null) {
       json[r'firstName'] = this.firstName;
-    } else {
-      json[r'firstName'] = null;
     }
     if (this.middleName != null) {
       json[r'middleName'] = this.middleName;
-    } else {
-      json[r'middleName'] = null;
     }
     if (this.lastName != null) {
       json[r'lastName'] = this.lastName;
-    } else {
-      json[r'lastName'] = null;
     }
     if (this.email != null) {
       json[r'email'] = this.email;
-    } else {
-      json[r'email'] = null;
     }
     if (this.phoneNumber != null) {
       json[r'phoneNumber'] = this.phoneNumber;
-    } else {
-      json[r'phoneNumber'] = null;
     }
     if (this.avatar != null) {
       json[r'avatar'] = this.avatar;
-    } else {
-      json[r'avatar'] = null;
     }
     if (this.createdDate != null) {
       json[r'createdDate'] = this.createdDate!.toUtc().toIso8601String();
-    } else {
-      json[r'createdDate'] = null;
     }
     if (this.createdBy != null) {
       json[r'createdBy'] = this.createdBy;
-    } else {
-      json[r'createdBy'] = null;
     }
     if (this.createdById != null) {
       json[r'createdById'] = this.createdById;
-    } else {
-      json[r'createdById'] = null;
     }
     if (this.updatedDate != null) {
       json[r'updatedDate'] = this.updatedDate!.toUtc().toIso8601String();
-    } else {
-      json[r'updatedDate'] = null;
     }
     if (this.updatedBy != null) {
       json[r'updatedBy'] = this.updatedBy;
-    } else {
-      json[r'updatedBy'] = null;
     }
     if (this.updatedById != null) {
       json[r'updatedById'] = this.updatedById;
-    } else {
-      json[r'updatedById'] = null;
     }
     if (this.deletedDate != null) {
       json[r'deletedDate'] = this.deletedDate!.toUtc().toIso8601String();
-    } else {
-      json[r'deletedDate'] = null;
     }
     if (this.deletedBy != null) {
       json[r'deletedBy'] = this.deletedBy;
-    } else {
-      json[r'deletedBy'] = null;
     }
     if (this.deletedById != null) {
       json[r'deletedById'] = this.deletedById;
-    } else {
-      json[r'deletedById'] = null;
     }
     if (this.isDeleted != null) {
       json[r'isDeleted'] = this.isDeleted;
-    } else {
-      json[r'isDeleted'] = null;
     }
     return json;
   }

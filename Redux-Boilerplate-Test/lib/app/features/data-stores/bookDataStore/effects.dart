@@ -1,5 +1,4 @@
 import 'dart:developer';
-import 'package:njktest2/app/features/auth/services/token-service/secure-storage-management-service.dart';
 import 'package:njktest2/app/features/auth/services/token-service/token-service.dart';
 import 'package:njktest2/app/features/data-stores/appDataStore/state.dart';
 import 'package:njktest2/app/features/shared/helper-classes/jsonata/jsonata-object.class.dart';
@@ -9,8 +8,7 @@ import '../appDataStore/actions.dart';
 import 'actions.dart';
 
 final BookControllerApi api = BookControllerApi();
-final TokenService tokenService =
-    TokenService(SecureStorageManagementService());
+final TokenService tokenService = TokenService.instance;
 
 Epic<AppDataStoreState> bookDataStoreEffects = combineEpics([
   TypedEpic<AppDataStoreState, GetBooks>(_getBooks).call,

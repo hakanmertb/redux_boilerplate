@@ -11,7 +11,36 @@
 part of openapi.api;
 
 class Application {
-  Application(  {  required this.id,    required this.type,    required this.zipcode,    required this.gender,    required this.birthday,    required this.heightFeet,    required this.heightInch,    required this.weight,    required this.householdSize,    required this.qualifyingLifeEvent,    required this.smoking,    required this.houseHoldIncomeRange,    required this.healthConditions,    required this.pregnancy,    required this.sampleFieldName,    required this.createdDate,    required this.createdBy,    required this.createdById,     this.updatedDate,     this.updatedBy,     this.updatedById,     this.deletedDate,     this.deletedBy,     this.deletedById,    required this.isDeleted,    required this.userId } );
+    /// Returns a new [Application] instance.
+  Application(
+    { required this.id,
+    required this.type,
+    required this.zipcode,
+    required this.gender,
+    required this.birthday,
+    required this.heightFeet,
+    required this.heightInch,
+    required this.weight,
+    required this.householdSize,
+    required this.qualifyingLifeEvent,
+    required this.smoking,
+    required this.houseHoldIncomeRange,
+    this.healthConditions = const [],
+    required this.pregnancy,
+    this.sampleFieldName,
+    this.createdDate,
+    this.createdBy,
+    this.createdById,
+    this.updatedDate,
+    this.updatedBy,
+    this.updatedById,
+    this.deletedDate,
+    this.deletedBy,
+    this.deletedById,
+    this.isDeleted,
+    this.userId, }
+  );
+
   String id;
 
   String type;
@@ -182,63 +211,39 @@ class Application {
       json[r'pregnancy'] = this.pregnancy;
     if (this.sampleFieldName != null) {
       json[r'sampleFieldName'] = this.sampleFieldName;
-    } else {
-      json[r'sampleFieldName'] = null;
     }
     if (this.createdDate != null) {
       json[r'createdDate'] = this.createdDate!.toUtc().toIso8601String();
-    } else {
-      json[r'createdDate'] = null;
     }
     if (this.createdBy != null) {
       json[r'createdBy'] = this.createdBy;
-    } else {
-      json[r'createdBy'] = null;
     }
     if (this.createdById != null) {
       json[r'createdById'] = this.createdById;
-    } else {
-      json[r'createdById'] = null;
     }
     if (this.updatedDate != null) {
       json[r'updatedDate'] = this.updatedDate!.toUtc().toIso8601String();
-    } else {
-      json[r'updatedDate'] = null;
     }
     if (this.updatedBy != null) {
       json[r'updatedBy'] = this.updatedBy;
-    } else {
-      json[r'updatedBy'] = null;
     }
     if (this.updatedById != null) {
       json[r'updatedById'] = this.updatedById;
-    } else {
-      json[r'updatedById'] = null;
     }
     if (this.deletedDate != null) {
       json[r'deletedDate'] = this.deletedDate!.toUtc().toIso8601String();
-    } else {
-      json[r'deletedDate'] = null;
     }
     if (this.deletedBy != null) {
       json[r'deletedBy'] = this.deletedBy;
-    } else {
-      json[r'deletedBy'] = null;
     }
     if (this.deletedById != null) {
       json[r'deletedById'] = this.deletedById;
-    } else {
-      json[r'deletedById'] = null;
     }
     if (this.isDeleted != null) {
       json[r'isDeleted'] = this.isDeleted;
-    } else {
-      json[r'isDeleted'] = null;
     }
     if (this.userId != null) {
       json[r'userId'] = this.userId;
-    } else {
-      json[r'userId'] = null;
     }
     return json;
   }

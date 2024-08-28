@@ -1,4 +1,4 @@
-import 'package:flutter_appauth/flutter_appauth.dart';
+import 'package:authwebview/authwebview.dart';
 
 class GetTokenByOauthSuccessfulActionPayload {
   final AuthorizationTokenResponse authorizationTokenResponse;

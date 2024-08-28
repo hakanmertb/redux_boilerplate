@@ -11,7 +11,14 @@
 part of openapi.api;
 
 class PingResponse {
-  PingResponse(  {  required this.greeting,    required this.date,    required this.url,    required this.headers } );
+    /// Returns a new [PingResponse] instance.
+  PingResponse(
+    { this.greeting,
+    this.date,
+    this.url,
+    this.headers, }
+  );
+
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
   /// does not include a default value (using the "default:" property), however, the generated
@@ -68,23 +75,15 @@ class PingResponse {
     final json = <String, dynamic>{};
     if (this.greeting != null) {
       json[r'greeting'] = this.greeting;
-    } else {
-      json[r'greeting'] = null;
     }
     if (this.date != null) {
       json[r'date'] = this.date;
-    } else {
-      json[r'date'] = null;
     }
     if (this.url != null) {
       json[r'url'] = this.url;
-    } else {
-      json[r'url'] = null;
     }
     if (this.headers != null) {
       json[r'headers'] = this.headers;
-    } else {
-      json[r'headers'] = null;
     }
     return json;
   }

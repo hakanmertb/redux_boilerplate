@@ -11,7 +11,13 @@
 part of openapi.api;
 
 class Credentials {
-  Credentials(  {  required this.username,    required this.password,    required this.usernameType } );
+    /// Returns a new [Credentials] instance.
+  Credentials(
+    { required this.username,
+    required this.password,
+    required this.usernameType, }
+  );
+
   String username;
 
   String password;

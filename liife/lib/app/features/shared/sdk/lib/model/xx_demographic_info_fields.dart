@@ -11,7 +11,22 @@
 part of openapi.api;
 
 class XxDemographicInfoFields {
-  XxDemographicInfoFields(  {  required this.id,    required this.firstName,    required this.createdDate,    required this.createdBy,    required this.createdById,    required this.updatedDate,    required this.updatedBy,    required this.updatedById,    required this.deletedDate,    required this.deletedBy,    required this.deletedById,    required this.isDeleted } );
+    /// Returns a new [XxDemographicInfoFields] instance.
+  XxDemographicInfoFields(
+    { this.id,
+    this.firstName,
+    this.createdDate,
+    this.createdBy,
+    this.createdById,
+    this.updatedDate,
+    this.updatedBy,
+    this.updatedById,
+    this.deletedDate,
+    this.deletedBy,
+    this.deletedById,
+    this.isDeleted, }
+  );
+
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
   /// does not include a default value (using the "default:" property), however, the generated
@@ -148,63 +163,39 @@ class XxDemographicInfoFields {
     final json = <String, dynamic>{};
     if (this.id != null) {
       json[r'id'] = this.id;
-    } else {
-      json[r'id'] = null;
     }
     if (this.firstName != null) {
       json[r'firstName'] = this.firstName;
-    } else {
-      json[r'firstName'] = null;
     }
     if (this.createdDate != null) {
       json[r'createdDate'] = this.createdDate;
-    } else {
-      json[r'createdDate'] = null;
     }
     if (this.createdBy != null) {
       json[r'createdBy'] = this.createdBy;
-    } else {
-      json[r'createdBy'] = null;
     }
     if (this.createdById != null) {
       json[r'createdById'] = this.createdById;
-    } else {
-      json[r'createdById'] = null;
     }
     if (this.updatedDate != null) {
       json[r'updatedDate'] = this.updatedDate;
-    } else {
-      json[r'updatedDate'] = null;
     }
     if (this.updatedBy != null) {
       json[r'updatedBy'] = this.updatedBy;
-    } else {
-      json[r'updatedBy'] = null;
     }
     if (this.updatedById != null) {
       json[r'updatedById'] = this.updatedById;
-    } else {
-      json[r'updatedById'] = null;
     }
     if (this.deletedDate != null) {
       json[r'deletedDate'] = this.deletedDate;
-    } else {
-      json[r'deletedDate'] = null;
     }
     if (this.deletedBy != null) {
       json[r'deletedBy'] = this.deletedBy;
-    } else {
-      json[r'deletedBy'] = null;
     }
     if (this.deletedById != null) {
       json[r'deletedById'] = this.deletedById;
-    } else {
-      json[r'deletedById'] = null;
     }
     if (this.isDeleted != null) {
       json[r'isDeleted'] = this.isDeleted;
-    } else {
-      json[r'isDeleted'] = null;
     }
     return json;
   }

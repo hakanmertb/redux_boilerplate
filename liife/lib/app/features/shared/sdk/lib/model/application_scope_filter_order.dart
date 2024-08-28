@@ -11,7 +11,10 @@
 part of openapi.api;
 
 class ApplicationScopeFilterOrder {
-  ApplicationScopeFilterOrder();
+    /// Returns a new [ApplicationScopeFilterOrder] instance.
+  ApplicationScopeFilterOrder(
+  );
+
 
 
   @override

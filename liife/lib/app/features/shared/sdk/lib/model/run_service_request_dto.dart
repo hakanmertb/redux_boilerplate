@@ -11,7 +11,13 @@
 part of openapi.api;
 
 class RunServiceRequestDTO {
-  RunServiceRequestDTO(  {  required this.serviceName,    required this.functionName,     this.payload } );
+    /// Returns a new [RunServiceRequestDTO] instance.
+  RunServiceRequestDTO(
+    { required this.serviceName,
+    required this.functionName,
+    this.payload, }
+  );
+
   String serviceName;
 
   String functionName;
@@ -42,8 +48,6 @@ class RunServiceRequestDTO {
       json[r'functionName'] = this.functionName;
     if (this.payload != null) {
       json[r'payload'] = this.payload;
-    } else {
-      json[r'payload'] = null;
     }
     return json;
   }

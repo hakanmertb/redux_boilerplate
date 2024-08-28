@@ -1,6 +1,5 @@
 import 'dart:developer';
 import 'package:njktest2/app/features/auth/services/auth-service/auth-provider-config.dart';
-import 'package:njktest2/app/features/auth/services/token-service/secure-storage-management-service.dart';
 import 'package:njktest2/app/features/auth/services/token-service/token-service.dart';
 import 'package:njktest2/app/features/data-stores/appDataStore/state.dart';
 import 'package:njktest2/app/features/data-stores/routerDataStore/actions.dart';
@@ -8,12 +7,12 @@ import 'package:njktest2/app/features/shared/sdk/lib/api.dart';
 import 'package:njktest2/app/routes.dart';
 import 'package:njktest2/definitons/settings.dart';
 import 'package:njktest2/environments/environment.dev.dart';
+import 'package:one_context/one_context.dart';
 import 'package:redux_epics/redux_epics.dart';
 import 'actions.dart';
 
 final AuthControllerApi api = AuthControllerApi();
-final TokenService tokenService =
-    TokenService(SecureStorageManagementService());
+final TokenService tokenService = TokenService.instance;
 
 Epic<AppDataStoreState> authDataStoreEffects = combineEpics([
   TypedEpic<AppDataStoreState, Register>(_register).call,
@@ -99,11 +98,11 @@ Stream<dynamic> _getTokenByOauth(
     Stream<GetTokenByOauth> actions, EpicStore<AppDataStoreState> store) {
   return actions.asyncExpand((action) async* {
     try {
-      var response =
-          await AuthProvidersConfig.authorize(action.payload.provider);
+      var response = await AuthorizationService.authorize(
+          action.payload.provider, OneContext().context!);
 
       if (response != null) {
-        log("idtoken:" + response.idToken!);
+        log("idtoken: ${response.idToken!}");
         yield GetTokenByOauthSuccessful({
           'authorizationTokenResponse': response,
           'redirectUrl': action.payload.redirectUrl,

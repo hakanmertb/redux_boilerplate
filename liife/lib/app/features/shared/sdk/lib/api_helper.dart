@@ -55,7 +55,7 @@ String parameterToString(dynamic value) {
   if (value is DateTime) {
     return value.toUtc().toIso8601String();
   }
-  return value.toString();
+  return jsonEncode(value.toJson());
 }
 
 /// Returns the decoded body as UTF-8 if the given headers indicate an 'application/json'

@@ -11,7 +11,11 @@
 part of openapi.api;
 
 class Count {
-  Count(  {  required this.count } );
+    /// Returns a new [Count] instance.
+  Count(
+    { required this.count, }
+  );
+
   num count;
 
 

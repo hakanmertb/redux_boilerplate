@@ -11,7 +11,37 @@
 part of openapi.api;
 
 class ApplicationWithRelations {
-  ApplicationWithRelations(  {  required this.id,    required this.type,    required this.zipcode,    required this.gender,    required this.birthday,    required this.heightFeet,    required this.heightInch,    required this.weight,    required this.householdSize,    required this.qualifyingLifeEvent,    required this.smoking,    required this.houseHoldIncomeRange,    required this.healthConditions,    required this.pregnancy,    required this.sampleFieldName,    required this.createdDate,    required this.createdBy,    required this.createdById,     this.updatedDate,     this.updatedBy,     this.updatedById,     this.deletedDate,     this.deletedBy,     this.deletedById,    required this.isDeleted,    required this.userId,    required this.user } );
+  /// Returns a new [ApplicationWithRelations] instance.
+  ApplicationWithRelations({
+    required this.id,
+    required this.type,
+    required this.zipcode,
+    required this.gender,
+    required this.birthday,
+    required this.heightFeet,
+    required this.heightInch,
+    required this.weight,
+    required this.householdSize,
+    required this.qualifyingLifeEvent,
+    required this.smoking,
+    required this.houseHoldIncomeRange,
+    this.healthConditions = const [],
+    required this.pregnancy,
+    this.sampleFieldName,
+    this.createdDate,
+    this.createdBy,
+    this.createdById,
+    this.updatedDate,
+    this.updatedBy,
+    this.updatedById,
+    this.deletedDate,
+    this.deletedBy,
+    this.deletedById,
+    this.isDeleted,
+    this.userId,
+    this.user,
+  });
+
   String id;
 
   String type;
@@ -108,152 +138,127 @@ class ApplicationWithRelations {
   ///
   UserWithRelations? user;
 
-
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is ApplicationWithRelations &&
+          other.id == id &&
+          other.type == type &&
+          other.zipcode == zipcode &&
+          other.gender == gender &&
+          other.birthday == birthday &&
+          other.heightFeet == heightFeet &&
+          other.heightInch == heightInch &&
+          other.weight == weight &&
+          other.householdSize == householdSize &&
+          other.qualifyingLifeEvent == qualifyingLifeEvent &&
+          other.smoking == smoking &&
+          other.houseHoldIncomeRange == houseHoldIncomeRange &&
+          _deepEquality.equals(other.healthConditions, healthConditions) &&
+          other.pregnancy == pregnancy &&
+          other.sampleFieldName == sampleFieldName &&
+          other.createdDate == createdDate &&
+          other.createdBy == createdBy &&
+          other.createdById == createdById &&
+          other.updatedDate == updatedDate &&
+          other.updatedBy == updatedBy &&
+          other.updatedById == updatedById &&
+          other.deletedDate == deletedDate &&
+          other.deletedBy == deletedBy &&
+          other.deletedById == deletedById &&
+          other.isDeleted == isDeleted &&
+          other.userId == userId &&
+          other.user == user;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is ApplicationWithRelations&&
-    other.id == id&&
-    other.type == type&&
-    other.zipcode == zipcode&&
-    other.gender == gender&&
-    other.birthday == birthday&&
-    other.heightFeet == heightFeet&&
-    other.heightInch == heightInch&&
-    other.weight == weight&&
-    other.householdSize == householdSize&&
-    other.qualifyingLifeEvent == qualifyingLifeEvent&&
-    other.smoking == smoking&&
-    other.houseHoldIncomeRange == houseHoldIncomeRange&&
-    _deepEquality.equals(other.healthConditions, healthConditions)&&
-    other.pregnancy == pregnancy&&
-    other.sampleFieldName == sampleFieldName&&
-    other.createdDate == createdDate&&
-    other.createdBy == createdBy&&
-    other.createdById == createdById&&
-    other.updatedDate == updatedDate&&
-    other.updatedBy == updatedBy&&
-    other.updatedById == updatedById&&
-    other.deletedDate == deletedDate&&
-    other.deletedBy == deletedBy&&
-    other.deletedById == deletedById&&
-    other.isDeleted == isDeleted&&
-    other.userId == userId&&
-    other.user == user;
+  int get hashCode =>
+      // ignore: unnecessary_parenthesis
+      (id.hashCode) +
+      (type.hashCode) +
+      (zipcode.hashCode) +
+      (gender.hashCode) +
+      (birthday.hashCode) +
+      (heightFeet.hashCode) +
+      (heightInch.hashCode) +
+      (weight.hashCode) +
+      (householdSize.hashCode) +
+      (qualifyingLifeEvent.hashCode) +
+      (smoking.hashCode) +
+      (houseHoldIncomeRange.hashCode) +
+      (healthConditions.hashCode) +
+      (pregnancy.hashCode) +
+      (sampleFieldName == null ? 0 : sampleFieldName!.hashCode) +
+      (createdDate == null ? 0 : createdDate!.hashCode) +
+      (createdBy == null ? 0 : createdBy!.hashCode) +
+      (createdById == null ? 0 : createdById!.hashCode) +
+      (updatedDate == null ? 0 : updatedDate!.hashCode) +
+      (updatedBy == null ? 0 : updatedBy!.hashCode) +
+      (updatedById == null ? 0 : updatedById!.hashCode) +
+      (deletedDate == null ? 0 : deletedDate!.hashCode) +
+      (deletedBy == null ? 0 : deletedBy!.hashCode) +
+      (deletedById == null ? 0 : deletedById!.hashCode) +
+      (isDeleted == null ? 0 : isDeleted!.hashCode) +
+      (userId == null ? 0 : userId!.hashCode) +
+      (user == null ? 0 : user!.hashCode);
 
   @override
-  int get hashCode => 
-    // ignore: unnecessary_parenthesis
-    (id.hashCode) +
-    (type.hashCode) +
-    (zipcode.hashCode) +
-    (gender.hashCode) +
-    (birthday.hashCode) +
-    (heightFeet.hashCode) +
-    (heightInch.hashCode) +
-    (weight.hashCode) +
-    (householdSize.hashCode) +
-    (qualifyingLifeEvent.hashCode) +
-    (smoking.hashCode) +
-    (houseHoldIncomeRange.hashCode) +
-    (healthConditions.hashCode) +
-    (pregnancy.hashCode) +
-    (sampleFieldName == null ? 0 : sampleFieldName!.hashCode) +
-    (createdDate == null ? 0 : createdDate!.hashCode) +
-    (createdBy == null ? 0 : createdBy!.hashCode) +
-    (createdById == null ? 0 : createdById!.hashCode) +
-    (updatedDate == null ? 0 : updatedDate!.hashCode) +
-    (updatedBy == null ? 0 : updatedBy!.hashCode) +
-    (updatedById == null ? 0 : updatedById!.hashCode) +
-    (deletedDate == null ? 0 : deletedDate!.hashCode) +
-    (deletedBy == null ? 0 : deletedBy!.hashCode) +
-    (deletedById == null ? 0 : deletedById!.hashCode) +
-    (isDeleted == null ? 0 : isDeleted!.hashCode) +
-    (userId == null ? 0 : userId!.hashCode) +
-    (user == null ? 0 : user!.hashCode);
-
-  @override
-  String toString() => 'ApplicationWithRelations[id=$id, type=$type, zipcode=$zipcode, gender=$gender, birthday=$birthday, heightFeet=$heightFeet, heightInch=$heightInch, weight=$weight, householdSize=$householdSize, qualifyingLifeEvent=$qualifyingLifeEvent, smoking=$smoking, houseHoldIncomeRange=$houseHoldIncomeRange, healthConditions=$healthConditions, pregnancy=$pregnancy, sampleFieldName=$sampleFieldName, createdDate=$createdDate, createdBy=$createdBy, createdById=$createdById, updatedDate=$updatedDate, updatedBy=$updatedBy, updatedById=$updatedById, deletedDate=$deletedDate, deletedBy=$deletedBy, deletedById=$deletedById, isDeleted=$isDeleted, userId=$userId, user=$user]';
+  String toString() =>
+      'ApplicationWithRelations[id=$id, type=$type, zipcode=$zipcode, gender=$gender, birthday=$birthday, heightFeet=$heightFeet, heightInch=$heightInch, weight=$weight, householdSize=$householdSize, qualifyingLifeEvent=$qualifyingLifeEvent, smoking=$smoking, houseHoldIncomeRange=$houseHoldIncomeRange, healthConditions=$healthConditions, pregnancy=$pregnancy, sampleFieldName=$sampleFieldName, createdDate=$createdDate, createdBy=$createdBy, createdById=$createdById, updatedDate=$updatedDate, updatedBy=$updatedBy, updatedById=$updatedById, deletedDate=$deletedDate, deletedBy=$deletedBy, deletedById=$deletedById, isDeleted=$isDeleted, userId=$userId, user=$user]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'id'] = this.id;
-      json[r'type'] = this.type;
-      json[r'zipcode'] = this.zipcode;
-      json[r'gender'] = this.gender;
-      json[r'birthday'] = this.birthday.toUtc().toIso8601String();
-      json[r'heightFeet'] = this.heightFeet;
-      json[r'heightInch'] = this.heightInch;
-      json[r'weight'] = this.weight;
-      json[r'householdSize'] = this.householdSize;
-      json[r'qualifyingLifeEvent'] = this.qualifyingLifeEvent;
-      json[r'smoking'] = this.smoking;
-      json[r'houseHoldIncomeRange'] = this.houseHoldIncomeRange;
-      json[r'healthConditions'] = this.healthConditions;
-      json[r'pregnancy'] = this.pregnancy;
+    json[r'id'] = this.id;
+    json[r'type'] = this.type;
+    json[r'zipcode'] = this.zipcode;
+    json[r'gender'] = this.gender;
+    json[r'birthday'] = this.birthday.toUtc().toIso8601String();
+    json[r'heightFeet'] = this.heightFeet;
+    json[r'heightInch'] = this.heightInch;
+    json[r'weight'] = this.weight;
+    json[r'householdSize'] = this.householdSize;
+    json[r'qualifyingLifeEvent'] = this.qualifyingLifeEvent;
+    json[r'smoking'] = this.smoking;
+    json[r'houseHoldIncomeRange'] = this.houseHoldIncomeRange;
+    json[r'healthConditions'] = this.healthConditions;
+    json[r'pregnancy'] = this.pregnancy;
     if (this.sampleFieldName != null) {
       json[r'sampleFieldName'] = this.sampleFieldName;
-    } else {
-      json[r'sampleFieldName'] = null;
     }
     if (this.createdDate != null) {
       json[r'createdDate'] = this.createdDate!.toUtc().toIso8601String();
-    } else {
-      json[r'createdDate'] = null;
     }
     if (this.createdBy != null) {
       json[r'createdBy'] = this.createdBy;
-    } else {
-      json[r'createdBy'] = null;
     }
     if (this.createdById != null) {
       json[r'createdById'] = this.createdById;
-    } else {
-      json[r'createdById'] = null;
     }
     if (this.updatedDate != null) {
       json[r'updatedDate'] = this.updatedDate!.toUtc().toIso8601String();
-    } else {
-      json[r'updatedDate'] = null;
     }
     if (this.updatedBy != null) {
       json[r'updatedBy'] = this.updatedBy;
-    } else {
-      json[r'updatedBy'] = null;
     }
     if (this.updatedById != null) {
       json[r'updatedById'] = this.updatedById;
-    } else {
-      json[r'updatedById'] = null;
     }
     if (this.deletedDate != null) {
       json[r'deletedDate'] = this.deletedDate!.toUtc().toIso8601String();
-    } else {
-      json[r'deletedDate'] = null;
     }
     if (this.deletedBy != null) {
       json[r'deletedBy'] = this.deletedBy;
-    } else {
-      json[r'deletedBy'] = null;
     }
     if (this.deletedById != null) {
       json[r'deletedById'] = this.deletedById;
-    } else {
-      json[r'deletedById'] = null;
     }
     if (this.isDeleted != null) {
       json[r'isDeleted'] = this.isDeleted;
-    } else {
-      json[r'isDeleted'] = null;
     }
     if (this.userId != null) {
       json[r'userId'] = this.userId;
-    } else {
-      json[r'userId'] = null;
     }
     if (this.user != null) {
       json[r'user'] = this.user;
-    } else {
-      json[r'user'] = null;
     }
     return json;
   }
@@ -270,8 +275,10 @@ class ApplicationWithRelations {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "ApplicationWithRelations[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "ApplicationWithRelations[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "ApplicationWithRelations[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "ApplicationWithRelations[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -286,11 +293,15 @@ class ApplicationWithRelations {
         heightInch: num.parse('${json[r'heightInch']}'),
         weight: num.parse('${json[r'weight']}'),
         householdSize: num.parse('${json[r'householdSize']}'),
-        qualifyingLifeEvent: mapValueOfType<String>(json, r'qualifyingLifeEvent')!,
+        qualifyingLifeEvent:
+            mapValueOfType<String>(json, r'qualifyingLifeEvent')!,
         smoking: mapValueOfType<bool>(json, r'smoking')!,
-        houseHoldIncomeRange: mapValueOfType<String>(json, r'houseHoldIncomeRange')!,
+        houseHoldIncomeRange:
+            mapValueOfType<String>(json, r'houseHoldIncomeRange')!,
         healthConditions: json[r'healthConditions'] is Iterable
-            ? (json[r'healthConditions'] as Iterable).cast<String>().toList(growable: false)
+            ? (json[r'healthConditions'] as Iterable)
+                .cast<String>()
+                .toList(growable: false)
             : const [],
         pregnancy: mapValueOfType<bool>(json, r'pregnancy')!,
         sampleFieldName: mapValueOfType<String>(json, r'sampleFieldName'),
@@ -311,7 +322,10 @@ class ApplicationWithRelations {
     return null;
   }
 
-  static List<ApplicationWithRelations> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<ApplicationWithRelations> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <ApplicationWithRelations>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -339,13 +353,19 @@ class ApplicationWithRelations {
   }
 
   // maps a json object with a list of ApplicationWithRelations-objects as value to a dart map
-  static Map<String, List<ApplicationWithRelations>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<ApplicationWithRelations>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<ApplicationWithRelations>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = ApplicationWithRelations.listFromJson(entry.value, growable: growable,);
+        map[entry.key] = ApplicationWithRelations.listFromJson(
+          entry.value,
+          growable: growable,
+        );
       }
     }
     return map;
@@ -370,8 +390,11 @@ class ApplicationWithRelations {
   };
 }
 
-extension ApplicationWithRelationsJsonUtils on ApplicationWithRelations{
-static List<ApplicationWithRelations> listFromJson(dynamic json, {bool growable = false,}) {
+extension ApplicationWithRelationsJsonUtils on ApplicationWithRelations {
+  static List<ApplicationWithRelations> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <ApplicationWithRelations>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -382,4 +405,5 @@ static List<ApplicationWithRelations> listFromJson(dynamic json, {bool growable 
       }
     }
     return result.toList(growable: growable);
-  }}
+  }
+}

@@ -11,7 +11,16 @@
 part of openapi.api;
 
 class RegisterDTO {
-  RegisterDTO(  {  required this.firstName,    required this.lastName,    required this.usernameType,     this.email,     this.phoneNumber,    required this.password } );
+    /// Returns a new [RegisterDTO] instance.
+  RegisterDTO(
+    { required this.firstName,
+    required this.lastName,
+    required this.usernameType,
+    this.email,
+    this.phoneNumber,
+    required this.password, }
+  );
+
   String firstName;
 
   String lastName;
@@ -55,13 +64,9 @@ class RegisterDTO {
       json[r'usernameType'] = this.usernameType;
     if (this.email != null) {
       json[r'email'] = this.email;
-    } else {
-      json[r'email'] = null;
     }
     if (this.phoneNumber != null) {
       json[r'phoneNumber'] = this.phoneNumber;
-    } else {
-      json[r'phoneNumber'] = null;
     }
       json[r'password'] = this.password;
     return json;

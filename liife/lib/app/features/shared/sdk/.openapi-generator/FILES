@@ -89,9 +89,3 @@ lib/model/xx_demographic_info_filter1.dart
 lib/model/xx_demographic_info_partial.dart
 lib/model/xx_demographic_info_with_relations.dart
 pubspec.yaml
-test/application_include_filter_inner_test.dart
-test/application_include_filter_items_test.dart
-test/application_scope_filter_fields_test.dart
-test/application_scope_filter_order_test.dart
-test/application_scope_filter_test.dart
-test/user_with_relations_test.dart

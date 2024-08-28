@@ -11,7 +11,12 @@
 part of openapi.api;
 
 class ApplicationIncludeFilterInner {
-  ApplicationIncludeFilterInner(  {  required this.relation,    required this.scope } );
+    /// Returns a new [ApplicationIncludeFilterInner] instance.
+  ApplicationIncludeFilterInner(
+    { this.relation,
+    this.scope, }
+  );
+
   ApplicationIncludeFilterInnerRelationEnum? relation;
 
   ///
@@ -42,13 +47,9 @@ class ApplicationIncludeFilterInner {
     final json = <String, dynamic>{};
     if (this.relation != null) {
       json[r'relation'] = this.relation;
-    } else {
-      json[r'relation'] = null;
     }
     if (this.scope != null) {
       json[r'scope'] = this.scope;
-    } else {
-      json[r'scope'] = null;
     }
     return json;
   }

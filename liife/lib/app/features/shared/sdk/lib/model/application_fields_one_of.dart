@@ -11,7 +11,36 @@
 part of openapi.api;
 
 class ApplicationFieldsOneOf {
-  ApplicationFieldsOneOf(  {  required this.id,    required this.type,    required this.zipcode,    required this.gender,    required this.birthday,    required this.heightFeet,    required this.heightInch,    required this.weight,    required this.householdSize,    required this.qualifyingLifeEvent,    required this.smoking,    required this.houseHoldIncomeRange,    required this.healthConditions,    required this.pregnancy,    required this.sampleFieldName,    required this.createdDate,    required this.createdBy,    required this.createdById,    required this.updatedDate,    required this.updatedBy,    required this.updatedById,    required this.deletedDate,    required this.deletedBy,    required this.deletedById,    required this.isDeleted,    required this.userId } );
+    /// Returns a new [ApplicationFieldsOneOf] instance.
+  ApplicationFieldsOneOf(
+    { this.id,
+    this.type,
+    this.zipcode,
+    this.gender,
+    this.birthday,
+    this.heightFeet,
+    this.heightInch,
+    this.weight,
+    this.householdSize,
+    this.qualifyingLifeEvent,
+    this.smoking,
+    this.houseHoldIncomeRange,
+    this.healthConditions,
+    this.pregnancy,
+    this.sampleFieldName,
+    this.createdDate,
+    this.createdBy,
+    this.createdById,
+    this.updatedDate,
+    this.updatedBy,
+    this.updatedById,
+    this.deletedDate,
+    this.deletedBy,
+    this.deletedById,
+    this.isDeleted,
+    this.userId, }
+  );
+
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
   /// does not include a default value (using the "default:" property), however, the generated
@@ -288,133 +317,81 @@ class ApplicationFieldsOneOf {
     final json = <String, dynamic>{};
     if (this.id != null) {
       json[r'id'] = this.id;
-    } else {
-      json[r'id'] = null;
     }
     if (this.type != null) {
       json[r'type'] = this.type;
-    } else {
-      json[r'type'] = null;
     }
     if (this.zipcode != null) {
       json[r'zipcode'] = this.zipcode;
-    } else {
-      json[r'zipcode'] = null;
     }
     if (this.gender != null) {
       json[r'gender'] = this.gender;
-    } else {
-      json[r'gender'] = null;
     }
     if (this.birthday != null) {
       json[r'birthday'] = this.birthday;
-    } else {
-      json[r'birthday'] = null;
     }
     if (this.heightFeet != null) {
       json[r'heightFeet'] = this.heightFeet;
-    } else {
-      json[r'heightFeet'] = null;
     }
     if (this.heightInch != null) {
       json[r'heightInch'] = this.heightInch;
-    } else {
-      json[r'heightInch'] = null;
     }
     if (this.weight != null) {
       json[r'weight'] = this.weight;
-    } else {
-      json[r'weight'] = null;
     }
     if (this.householdSize != null) {
       json[r'householdSize'] = this.householdSize;
-    } else {
-      json[r'householdSize'] = null;
     }
     if (this.qualifyingLifeEvent != null) {
       json[r'qualifyingLifeEvent'] = this.qualifyingLifeEvent;
-    } else {
-      json[r'qualifyingLifeEvent'] = null;
     }
     if (this.smoking != null) {
       json[r'smoking'] = this.smoking;
-    } else {
-      json[r'smoking'] = null;
     }
     if (this.houseHoldIncomeRange != null) {
       json[r'houseHoldIncomeRange'] = this.houseHoldIncomeRange;
-    } else {
-      json[r'houseHoldIncomeRange'] = null;
     }
     if (this.healthConditions != null) {
       json[r'healthConditions'] = this.healthConditions;
-    } else {
-      json[r'healthConditions'] = null;
     }
     if (this.pregnancy != null) {
       json[r'pregnancy'] = this.pregnancy;
-    } else {
-      json[r'pregnancy'] = null;
     }
     if (this.sampleFieldName != null) {
       json[r'sampleFieldName'] = this.sampleFieldName;
-    } else {
-      json[r'sampleFieldName'] = null;
     }
     if (this.createdDate != null) {
       json[r'createdDate'] = this.createdDate;
-    } else {
-      json[r'createdDate'] = null;
     }
     if (this.createdBy != null) {
       json[r'createdBy'] = this.createdBy;
-    } else {
-      json[r'createdBy'] = null;
     }
     if (this.createdById != null) {
       json[r'createdById'] = this.createdById;
-    } else {
-      json[r'createdById'] = null;
     }
     if (this.updatedDate != null) {
       json[r'updatedDate'] = this.updatedDate;
-    } else {
-      json[r'updatedDate'] = null;
     }
     if (this.updatedBy != null) {
       json[r'updatedBy'] = this.updatedBy;
-    } else {
-      json[r'updatedBy'] = null;
     }
     if (this.updatedById != null) {
       json[r'updatedById'] = this.updatedById;
-    } else {
-      json[r'updatedById'] = null;
     }
     if (this.deletedDate != null) {
       json[r'deletedDate'] = this.deletedDate;
-    } else {
-      json[r'deletedDate'] = null;
     }
     if (this.deletedBy != null) {
       json[r'deletedBy'] = this.deletedBy;
-    } else {
-      json[r'deletedBy'] = null;
     }
     if (this.deletedById != null) {
       json[r'deletedById'] = this.deletedById;
-    } else {
-      json[r'deletedById'] = null;
     }
     if (this.isDeleted != null) {
       json[r'isDeleted'] = this.isDeleted;
-    } else {
-      json[r'isDeleted'] = null;
     }
     if (this.userId != null) {
       json[r'userId'] = this.userId;
-    } else {
-      json[r'userId'] = null;
     }
     return json;
   }
